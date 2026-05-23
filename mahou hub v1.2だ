@@ -1,0 +1,624 @@
+-- 古い名前と同じGUIが画面に残っていたら強制削除
+local player = game:GetService("Players").LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+if playerGui:FindFirstChild("FOV_GUI") then
+	playerGui.FOV_GUI:Destroy()
+end
+
+-- 実行フラグのリセット
+if game:GetService("CoreGui"):FindFirstChild("mahouHubLoaded") then
+	game:GetService("CoreGui")["mahouHubLoaded"]:Destroy()
+end
+
+local loadedFlag = Instance.new("BoolValue")
+loadedFlag.Name = "mahouHubLoaded"
+loadedFlag.Parent = game:GetService("CoreGui")
+
+-- 通知
+pcall(function()
+	game:GetService("StarterGui"):SetCore("SendNotification",{
+		Title = "mahou hub v1.2",
+		Text = "正常にロードされました",
+		Duration = 5
+	})
+end)
+
+local UIS = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local TweenService = game:GetService("TweenService")
+local camera = workspace.CurrentCamera
+
+-- ゲームが完全にロードされるのを待機
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
+
+-- GUIの作成
+local gui = Instance.new("ScreenGui")
+gui.Name = "FOV_GUI"
+gui.ResetOnSpawn = false
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+gui.Parent = playerGui
+
+-- ==========================================
+-- 【新規】動画風イントロ（ロード演出）用パーツ
+-- ==========================================
+local introLabel = Instance.new("TextLabel")
+introLabel.Size = UDim2.new(0, 300, 0, 50)
+introLabel.Position = UDim2.new(0.5, 0, 0.5, -40) -- 画面の真ん中
+introLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+introLabel.BackgroundTransparency = 1
+introLabel.Text = "mahou hub v1.2"
+introLabel.Font = Enum.Font.GothamBold
+introLabel.TextSize = 28
+introLabel.TextColor3 = Color3.new(1, 1, 1)
+introLabel.TextTransparency = 1 -- 最初は透明
+introLabel.Rotation = -10 -- 最初は少し傾ける
+introLabel.Parent = gui
+
+-- ===== メイン（全体の枠） =====
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0,340,0,320)
+frame.AnchorPoint = Vector2.new(0.5, 0.5)
+frame.Position = UDim2.new(0.5, 0, -0.5, 0) -- 最初は画面の上の外側に隠す
+frame.BackgroundColor3 = Color3.fromRGB(20,20,20)
+frame.BorderSizePixel = 0
+frame.Active = true
+frame.Draggable = true
+frame.Visible = false -- イントロが終わるまで非表示
+frame.Parent = gui
+
+Instance.new("UICorner",frame).CornerRadius = UDim.new(0,12)
+
+-- ×ボタン
+local close = Instance.new("TextButton")
+close.Size = UDim2.new(0,30,0,30)
+close.Position = UDim2.new(1,-35,0,5)
+close.BackgroundTransparency = 1
+close.Text = "×"
+close.Font = Enum.Font.GothamBold
+close.TextSize = 22
+close.TextColor3 = Color3.new(1,1,1)
+close.ZIndex = 3
+close.Parent = frame
+
+-- 開くボタン
+local open = Instance.new("TextButton")
+open.Size = UDim2.new(0,160,0,50)
+open.AnchorPoint = Vector2.new(0.5, 0)
+open.Position = UDim2.new(0.5, 0, 0, 2)
+open.BackgroundColor3 = Color3.fromRGB(35,35,35)
+open.Text = "メニューを表示"
+open.Font = Enum.Font.GothamBold
+open.TextSize = 16
+open.TextColor3 = Color3.new(1,1,1)
+open.Visible = false
+open.Parent = gui
+
+Instance.new("UICorner",open).CornerRadius = UDim.new(1,0)
+
+-- タイトル
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1,0,0,40)
+title.BackgroundTransparency = 1
+title.Text = "mahou hub v1.2"
+title.Font = Enum.Font.GothamBold
+title.TextSize = 18
+title.TextColor3 = Color3.new(1,1,1)
+title.ZIndex = 2
+title.Parent = frame
+
+--- スライド（スクロール） コンテナ ---
+local scrollContainer = Instance.new("ScrollingFrame")
+scrollContainer.Size = UDim2.new(1, 0, 1, -75)
+scrollContainer.Position = UDim2.new(0, 0, 0, 40)
+scrollContainer.BackgroundTransparency = 1
+scrollContainer.BorderSizePixel = 0
+scrollContainer.CanvasSize = UDim2.new(0, 0, 0, 0)
+scrollContainer.ScrollBarThickness = 6
+scrollContainer.ScrollBarImageColor3 = Color3.fromRGB(100,100,100)
+scrollContainer.Parent = frame
+
+local uiListLayout = Instance.new("UIListLayout")
+uiListLayout.Parent = scrollContainer
+uiListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+uiListLayout.Padding = UDim.new(0, 10)
+
+local uiPadding = Instance.new("UIPadding")
+uiPadding.Parent = scrollContainer
+uiPadding.PaddingTop = UDim.new(0, 10)
+uiPadding.PaddingLeft = UDim.new(0, 12)
+uiPadding.PaddingRight = UDim.new(0, 12)
+
+-- 共通スライダー関数
+local function createSlider(text, min, max, default, order, isFloat)
+	local container = Instance.new("Frame")
+	container.Size = UDim2.new(1, 0, 0, 40)
+	container.BackgroundTransparency = 1
+	container.LayoutOrder = order
+	container.Parent = scrollContainer
+
+	local label = Instance.new("TextLabel")
+	label.Size = UDim2.new(0, 130, 1, 0)
+	label.BackgroundTransparency = 1
+	label.Text = text
+	label.TextXAlignment = Enum.TextXAlignment.Left
+	label.Font = Enum.Font.Gotham
+	label.TextSize = 14
+	label.TextColor3 = Color3.new(1,1,1)
+	label.Parent = container
+
+	local bg = Instance.new("Frame")
+	bg.Size = UDim2.new(1, -140, 0, 20)
+	bg.Position = UDim2.new(0, 140, 0.5, -10)
+	bg.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	bg.BorderSizePixel = 0
+	bg.Parent = container
+	Instance.new("UICorner",bg).CornerRadius = UDim.new(1,0)
+
+	local fill = Instance.new("Frame")
+	fill.BackgroundColor3 = Color3.fromRGB(0,120,255)
+	fill.BorderSizePixel = 0
+	fill.Parent = bg
+	Instance.new("UICorner",fill).CornerRadius = UDim.new(1,0)
+
+	local knob = Instance.new("Frame")
+	knob.Size = UDim2.new(0,18,0,18)
+	knob.BackgroundColor3 = Color3.new(1,1,1)
+	knob.BorderSizePixel = 0
+	knob.Parent = bg
+	Instance.new("UICorner",knob).CornerRadius = UDim.new(1,0)
+
+	local vLabel = Instance.new("TextLabel")
+	vLabel.Size = UDim2.new(1,0,1,0)
+	vLabel.BackgroundTransparency = 1
+	vLabel.Font = Enum.Font.GothamBold
+	vLabel.TextSize = 13
+	vLabel.TextColor3 = Color3.new(1,1,1)
+	vLabel.Parent = bg
+
+	local currentVal = default
+	local dragging = false
+
+	local function update(x)
+		local percent = math.clamp((x - bg.AbsolutePosition.X) / bg.AbsoluteSize.X, 0, 1)
+		fill.Size = UDim2.new(percent,0,1,0)
+		knob.Position = UDim2.new(percent,-9,0.5,-9)
+		
+		local rawVal = min + ((max - min) * percent)
+		if isFloat then
+			currentVal = math.floor(rawVal * 10) / 10
+			vLabel.Text = string.format("%.1f", currentVal)
+		else
+			currentVal = math.floor(rawVal)
+			vLabel.Text = tostring(currentVal)
+		end
+	end
+
+	local initPercent = (default - min) / (max - min)
+	fill.Size = UDim2.new(initPercent,0,1,0)
+	knob.Position = UDim2.new(initPercent,-9,0.5,-9)
+	if isFloat then
+		vLabel.Text = string.format("%.1f", default)
+	else
+		vLabel.Text = tostring(default)
+	end
+
+	bg.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			frame.Draggable = false
+			update(input.Position.X)
+		end
+	end)
+
+	UIS.InputChanged:Connect(function(input)
+		if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+			update(input.Position.X)
+		end
+	end)
+
+	UIS.InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = false
+			frame.Draggable = true
+		end
+	end)
+
+	return {
+		getValue = function() return currentVal end
+	}
+end
+
+-- 共通トグル関数
+local function createToggle(text, order)
+	local container = Instance.new("Frame")
+	container.Size = UDim2.new(1, 0, 0, 35)
+	container.BackgroundTransparency = 1
+	container.LayoutOrder = order
+	container.Parent = scrollContainer
+
+	local label = Instance.new("TextLabel")
+	label.Size = UDim2.new(0, 150, 1, 0)
+	label.BackgroundTransparency = 1
+	label.Text = text
+	label.TextXAlignment = Enum.TextXAlignment.Left
+	label.Font = Enum.Font.Gotham
+	label.TextSize = 14
+	label.TextColor3 = Color3.new(1,1,1)
+	label.Parent = container
+
+	local btn = Instance.new("TextButton")
+	btn.Size = UDim2.new(0, 90, 0, 28)
+	btn.Position = UDim2.new(1, -90, 0.5, -14)
+	btn.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	btn.Text = "OFF"
+	btn.Font = Enum.Font.GothamBold
+	btn.TextSize = 13
+	btn.TextColor3 = Color3.new(1,1,1)
+	btn.Parent = container
+	Instance.new("UICorner",btn).CornerRadius = UDim.new(0,8)
+
+	return btn
+end
+
+-- 共通ボタン関数
+local function createActionButton(text, order, color)
+	local btn = Instance.new("TextButton")
+	btn.Size = UDim2.new(1, 0, 0, 32)
+	btn.BackgroundColor3 = color or Color3.fromRGB(40,40,40)
+	btn.BorderSizePixel = 0
+	btn.Text = text
+	btn.Font = Enum.Font.GothamBold
+	btn.TextSize = 14
+	btn.TextColor3 = Color3.new(1,1,1)
+	btn.LayoutOrder = order
+	btn.Parent = scrollContainer
+	Instance.new("UICorner",btn).CornerRadius = UDim.new(0,8)
+	return btn
+end
+
+-- ===== パーツ配置 =====
+local fovSlider = createSlider("視野角 (FOV)", 70, 120, 95, 1, false)
+local apply = createActionButton("適用FOV", 2, Color3.fromRGB(0,120,255))
+local thirdButton = createToggle("三人称", 3)
+
+local killContainer = Instance.new("Frame")
+killContainer.Size = UDim2.new(1, 0, 0, 32)
+killContainer.BackgroundTransparency = 1
+killContainer.LayoutOrder = 4
+killContainer.Parent = scrollContainer
+
+local killOnce = Instance.new("TextButton")
+killOnce.Size = UDim2.new(0.5, -5, 1, 0)
+killOnce.BackgroundColor3 = Color3.fromRGB(170,40,40)
+killOnce.Text = "一度だけ殺す"
+killOnce.Font = Enum.Font.GothamBold
+killOnce.TextSize = 14
+killOnce.TextColor3 = Color3.new(1,1,1)
+killOnce.Parent = killContainer
+Instance.new("UICorner",killOnce).CornerRadius = UDim.new(0,8)
+
+local loopKill = Instance.new("TextButton")
+loopKill.Size = UDim2.new(0.5, -5, 1, 0)
+loopKill.Position = UDim2.new(0.5, 5, 0, 0)
+loopKill.BackgroundColor3 = Color3.fromRGB(40,40,40)
+loopKill.Text = "ループキルオフ"
+loopKill.Font = Enum.Font.GothamBold
+loopKill.TextSize = 14
+loopKill.TextColor3 = Color3.new(1,1,1)
+loopKill.Parent = killContainer
+Instance.new("UICorner",loopKill).CornerRadius = UDim.new(0,8)
+
+local targetKillContainer = Instance.new("Frame")
+targetKillContainer.Size = UDim2.new(1, 0, 0, 35)
+targetKillContainer.BackgroundTransparency = 1
+targetKillContainer.LayoutOrder = 4.5
+targetKillContainer.Parent = scrollContainer
+
+local targetInput = Instance.new("TextBox")
+targetInput.Size = UDim2.new(0.5, -5, 1, 0)
+targetInput.BackgroundColor3 = Color3.fromRGB(40,40,40)
+targetInput.Text = ""
+targetInput.PlaceholderText = "プレイヤー名..."
+targetInput.Font = Enum.Font.Gotham
+targetInput.TextSize = 14
+targetInput.TextColor3 = Color3.new(1,1,1)
+targetInput.Parent = targetKillContainer
+Instance.new("UICorner", targetInput).CornerRadius = UDim.new(0,8)
+
+local targetKillBtn = Instance.new("TextButton")
+targetKillBtn.Size = UDim2.new(0.5, -5, 1, 0)
+targetKillBtn.Position = UDim2.new(0.5, 5, 0, 0)
+targetKillBtn.BackgroundColor3 = Color3.fromRGB(170, 40, 40)
+targetKillBtn.Text = "選択プレイヤーを殺す"
+targetKillBtn.Font = Enum.Font.GothamBold
+targetKillBtn.TextSize = 13
+targetKillBtn.TextColor3 = Color3.new(1,1,1)
+targetKillBtn.Parent = targetKillContainer
+Instance.new("UICorner", targetKillBtn).CornerRadius = UDim.new(0,8)
+
+local speedSlider = createSlider("速度値", 16, 200, 16, 5, false)
+local speedApply = createActionButton("スピードアプリ", 6, Color3.fromRGB(0,120,255))
+local jumpSlider = createSlider("ジャンプ値", 50, 300, 50, 7, false)
+local jumpApply = createActionButton("ジャンプ力app", 8, Color3.fromRGB(0,120,255))
+local noclipBtn = createToggle("No Clip", 9)
+
+local spamTitle = Instance.new("TextLabel")
+spamTitle.Size = UDim2.new(1, 0, 0, 25)
+spamTitle.BackgroundTransparency = 1
+spamTitle.Text = "--- チャットスパム設定 ---"
+spamTitle.Font = Enum.Font.GothamBold
+spamTitle.TextSize = 14
+spamTitle.TextColor3 = Color3.fromRGB(150, 150, 150)
+spamTitle.LayoutOrder = 10
+spamTitle.Parent = scrollContainer
+
+local msgContainer = Instance.new("Frame")
+msgContainer.Size = UDim2.new(1, 0, 0, 40)
+msgContainer.BackgroundTransparency = 1
+msgContainer.LayoutOrder = 11
+msgContainer.Parent = scrollContainer
+
+local msgLabel = Instance.new("TextLabel")
+msgLabel.Size = UDim2.new(0, 130, 1, 0)
+msgLabel.BackgroundTransparency = 1
+msgLabel.Text = "スパムメッセージ"
+msgLabel.TextXAlignment = Enum.TextXAlignment.Left
+msgLabel.Font = Enum.Font.Gotham
+msgLabel.TextSize = 14
+msgLabel.TextColor3 = Color3.new(1,1,1)
+msgLabel.Parent = msgContainer
+
+local msgInput = Instance.new("TextBox")
+msgInput.Size = UDim2.new(1, -140, 0, 30)
+msgInput.Position = UDim2.new(0, 140, 0.5, -15)
+msgInput.BackgroundColor3 = Color3.fromRGB(40,40,40)
+msgInput.Text = "Input"
+msgInput.PlaceholderText = "メッセージを入力..."
+msgInput.Font = Enum.Font.Gotham
+msgInput.TextSize = 14
+msgInput.TextColor3 = Color3.new(1,1,1)
+msgInput.Parent = msgContainer
+Instance.new("UICorner", msgInput).CornerRadius = UDim.new(0,6)
+
+local intervalSlider = createSlider("間隔 (秒)", 0.1, 10.0, 1.0, 12, true)
+local countSlider = createSlider("回数", 1, 100, 10, 13, false)
+
+local spamBtnContainer = Instance.new("Frame")
+spamBtnContainer.Size = UDim2.new(1, 0, 0, 32)
+spamBtnContainer.BackgroundTransparency = 1
+spamBtnContainer.LayoutOrder = 14
+spamBtnContainer.Parent = scrollContainer
+
+local startSpam = Instance.new("TextButton")
+startSpam.Size = UDim2.new(0.5, -5, 1, 0)
+startSpam.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
+startSpam.Text = "スパム送信"
+startSpam.Font = Enum.Font.GothamBold
+startSpam.TextSize = 14
+startSpam.TextColor3 = Color3.new(1,1,1)
+startSpam.Parent = spamBtnContainer
+Instance.new("UICorner", startSpam).CornerRadius = UDim.new(0,8)
+
+local stopSpam = Instance.new("TextButton")
+stopSpam.Size = UDim2.new(0.5, -5, 1, 0)
+stopSpam.Position = UDim2.new(0.5, 5, 0, 0)
+stopSpam.BackgroundColor3 = Color3.fromRGB(170, 40, 40)
+stopSpam.Text = "スパム停止"
+stopSpam.Font = Enum.Font.GothamBold
+stopSpam.TextSize = 14
+stopSpam.TextColor3 = Color3.new(1,1,1)
+stopSpam.Parent = spamBtnContainer
+Instance.new("UICorner", stopSpam).CornerRadius = UDim.new(0,8)
+
+local creatorLabel = Instance.new("TextLabel")
+creatorLabel.Size = UDim2.new(1,0,0,30)
+creatorLabel.Position = UDim2.new(0,0,1,-35)
+creatorLabel.BackgroundTransparency = 1
+creatorLabel.Text = "製作者魔法"
+creatorLabel.Font = Enum.Font.Gotham
+creatorLabel.TextSize = 13
+creatorLabel.TextColor3 = Color3.fromRGB(120,120,120)
+creatorLabel.Parent = frame
+
+-- ===== 各種ロジック =====
+local thirdPerson = false
+local loopKillEnabled = false
+local noclipEnabled = false
+local spamming = false
+
+apply.MouseButton1Click:Connect(function()
+	camera.FieldOfView = fovSlider.getValue()
+end)
+
+thirdButton.MouseButton1Click:Connect(function()
+	thirdPerson = not thirdPerson
+	if thirdPerson then
+		thirdButton.Text = "オン"
+		thirdButton.BackgroundColor3 = Color3.fromRGB(0,120,255)
+		player.CameraMode = Enum.CameraMode.Classic
+		player.CameraMaxZoomDistance = 5000
+		player.CameraMinZoomDistance = 0
+	else
+		thirdButton.Text = "OFF"
+		thirdButton.BackgroundColor3 = Color3.fromRGB(40,40,40)
+		player.CameraMode = Enum.CameraMode.LockFirstPerson
+	end
+end)
+
+killOnce.MouseButton1Click:Connect(function()
+	local character = player.Character
+	if character and character:FindFirstChild("Humanoid") then
+		character.Humanoid.Health = 0
+	end
+end)
+
+loopKill.MouseButton1Click:Connect(function()
+	loopKillEnabled = not loopKillEnabled
+	if loopKillEnabled then
+		loopKill.Text = "ループキルON"
+		loopKill.BackgroundColor3 = Color3.fromRGB(170,40,40)
+	else
+		loopKill.Text = "ループキルオフ"
+		loopKill.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	end
+end)
+
+targetKillBtn.MouseButton1Click:Connect(function()
+	local inputText = targetInput.Text
+	if inputText == "" then return end
+	
+	for _, p in pairs(game:GetService("Players"):GetPlayers()) do
+		if string.sub(string.lower(p.Name), 1, string.len(inputText)) == string.lower(inputText) or string.sub(string.lower(p.DisplayName), 1, string.len(inputText)) == string.lower(inputText) then
+			if p.Character and p.Character:FindFirstChild("Humanoid") then
+				p.Character.Humanoid.Health = 0
+				break
+			end
+		end
+	end
+end)
+
+speedApply.MouseButton1Click:Connect(function()
+	local character = player.Character
+	if character and character:FindFirstChild("Humanoid") then
+		character.Humanoid.WalkSpeed = speedSlider.getValue()
+	end
+end)
+
+jumpApply.MouseButton1Click:Connect(function()
+	local character = player.Character
+	if character and character:FindFirstChild("Humanoid") then
+		character.Humanoid.UseJumpPower = true
+		character.Humanoid.JumpPower = jumpSlider.getValue()
+	end
+end)
+
+noclipBtn.MouseButton1Click:Connect(function()
+	noclipEnabled = not noclipEnabled
+	if noclipEnabled then
+		noclipBtn.Text = "ON"
+		noclipBtn.BackgroundColor3 = Color3.fromRGB(0,120,255)
+	else
+		noclipBtn.Text = "OFF"
+		noclipBtn.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	end
+end)
+
+startSpam.MouseButton1Click:Connect(function()
+	if spamming then return end
+	spamming = true
+	
+	local textService = game:GetService("TextChatService")
+	local channel = textService and textService:FindFirstChild("TextChannels") and textService.TextChannels:FindFirstChild("RBXGeneral")
+	local message = msgInput.Text
+	local interval = intervalSlider.getValue()
+	local maxCount = countSlider.getValue()
+	
+	if not channel or message == "" or message == "Input" then
+		spamming = false
+		return 
+	end
+	
+	task.spawn(function()
+		for i = 1, maxCount do
+			if not spamming then break end
+			pcall(function()
+				channel:SendAsync(message)
+			end)
+			task.wait(interval)
+		end
+		spamming = false
+	end)
+end)
+
+stopSpam.MouseButton1Click:Connect(function()
+	spamming = false
+end)
+
+task.spawn(function()
+	while true do
+		task.wait()
+		local character = player.Character
+		if character then
+			if loopKillEnabled and character:FindFirstChild("Humanoid") then
+				character.Humanoid.Health = 0
+			end
+			if noclipEnabled then
+				for _, part in pairs(character:GetDescendants()) do
+					if part:IsA("BasePart") and part.CanCollide then
+						part.CanCollide = false
+					end
+				end
+			end
+		end
+	end
+end)
+
+close.MouseButton1Click:Connect(function()
+	frame.Visible = false
+	open.Visible = true
+end)
+
+open.MouseButton1Click:Connect(function()
+	frame.Visible = true
+	open.Visible = false
+end)
+
+scrollContainer.CanvasSize = UDim2.new(0, 0, 0, uiListLayout.AbsoluteContentSize.Y + 30)
+uiListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+	scrollContainer.CanvasSize = UDim2.new(0, 0, 0, uiListLayout.AbsoluteContentSize.Y + 30)
+end)
+
+-- ==========================================
+-- 【新規】動画風アニメーション実行ロジック
+-- ==========================================
+task.spawn(function()
+	task.wait(1.0) -- スクリプト読み込み後に少し待機
+
+	-- 1. ロゴが回転しながらふわっと現れる（フェードイン）
+	local fadeInInfo = TweenInfo.new(1.0, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local fadeIn = TweenService:Create(introLabel, fadeInInfo, {
+		TextTransparency = 0,
+		Rotation = 0
+	})
+	fadeIn:Play()
+	fadeIn.Completed:Wait() -- フェードイン完了を待つ
+
+	task.wait(1.2) -- 真ん中でロゴを表示し続ける時間
+
+	-- 2. ロゴが消える（フェードアウト）
+	local fadeOutInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quart, Enum.EasingDirection.In)
+	local fadeOut = TweenService:Create(introLabel, fadeOutInfo, {
+		TextTransparency = 1,
+		Rotation = 10
+	})
+	fadeOut:Play()
+	fadeOut.Completed:Wait()
+	introLabel:Destroy() -- 使い終わったロゴを削除
+
+	-- 3. メインメニューを画面中央へ出現させる（上からスライドイン）
+	frame.Visible = true
+	local menuInInfo = TweenInfo.new(0.8, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
+	local slideIn = TweenService:Create(frame, menuInInfo, {
+		Position = UDim2.new(0.5, 0, 0.5, 0) -- 完全に画面の中心
+	})
+	slideIn:Play()
+end)
+-- ===== 起動時に自動で一度だけチャット送信 =====
+task.spawn(function()
+	task.wait(3.0) -- ロード後に少し待機
+	local textService = game:GetService("TextChatService")
+	local channel = textService and textService:FindFirstChild("TextChannels") and textService.TextChannels:FindFirstChild("RBXGeneral")
+	
+	-- すでに送信済みかどうかを確認する変数
+	if not _G.MahouHubSent then
+		if channel then
+			pcall(function()
+				channel:SendAsync("mahou hub v1.2 loaded!")
+				_G.MahouHubSent = true -- 送信したのでフラグを立てる
+			end)
+		end
+	end
+end)
