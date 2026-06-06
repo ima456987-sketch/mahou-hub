@@ -1,0 +1,2023 @@
+"
+--ts は verbal hub によって名前が変更されました
+game.Players.LocalPlayer:SetAttribute("RG", "YJMZg8bAH8")
+
+
+getgenv().d84jdnmasjdh43d ではなく、game.PlaceId == 6961824067 の場合、
+    getgenv().d84jdnmasjdh43d = true
+    local playersService = game:GetService("Players")
+    関数 GetKey()
+        playersService.LocalPlayer:GetAttribute("RG") == "YJMZg8bAH8" の場合
+            「ザナ」を返す
+        終わり
+    終わり
+    GetKey() が "Xana" と等しくない場合
+        keySystem = loadstring(game:HttpGet("https://raw.githubusercontent.com/BlizTBr/scripts/main/Key%20System"))()
+    終わり
+    local orionXHub = loadstring(game:HttpGet("https://raw.githubusercontent.com/BlizTBr/scripts/main/Orion%20X"))()
+    local debrisService = game:GetService("Debris")
+    local workspaceService = game:GetService("Workspace")
+    local lightingService = game:GetService("Lighting")
+    local tweenService = game:GetService("TweenService")
+    local userInputService = game:GetService("UserInputService")
+    local replicatedStorageService = game:GetService("ReplicatedStorage")
+    local replicatedFirstService = game:GetService("ReplicatedFirst")
+    local contextActionService = game:GetService("ContextActionService")
+    ローカル runService = ゲーム:GetService("RunService")
+    local virtualUserService = game:GetService("VirtualUser")
+    local characterEventsFolder = replicatedStorageService:WaitForChild("CharacterEvents")
+    local localPlayer = playersService.LocalPlayer
+    local playerGui = localPlayer:WaitForChild("PlayerGui")
+    localPlayer:GetMouse()
+    local spawnedInToysFolder = workspaceService:WaitForChild(localPlayer.Name .. "SpawnedInToys")
+    local isInPlotValue = localPlayer:WaitForChild("InPlot")
+    ローカルおもちゃ制限キャップ値 = localPlayer:WaitForChild("おもちゃ制限キャップ")
+    local usedToyPointsValue = localPlayer:WaitForChild("usedToyPoints")
+    SpawnToyRF = replicatedStorageService:WaitForChild("MenuToys"):WaitForChild("SpawnToyRemoteFunction")
+    DeleteToyRE = replicatedStorageService:WaitForChild("MenuToys"):WaitForChild("DestroyToy")
+    BuyToy = replicatedStorageService:WaitForChild("MenuToys"):WaitForChild("BuyToyRemoteFunction")
+    BombEvents = replicatedStorageService:WaitForChild("BombEvents")
+    function ActionEvent(actionName, actionState)
+        local controlsGui = playerGui:FindFirstChild("ControlsGui")
+        local actionEvent = controlsGui and controlsGui:FindFirstChild("ActionEvent")
+        actionEvent の場合
+            actionEvent:Fire(actionName, actionState)
+        終わり
+    終わり
+    typeAnimation = replicatedFirstService.Typing.Type
+    flailAnimation = replicatedFirstService.ThrowPlayers.Flail
+    local createGrabLineEvent = replicatedStorageService:WaitForChild("GrabEvents"):WaitForChild("CreateGrabLine")
+    local destroyGrabLineEvent = replicatedStorageService:WaitForChild("GrabEvents"):WaitForChild("DestroyGrabLine")
+    local setNetworkOwnerEvent = replicatedStorageService:WaitForChild("GrabEvents"):WaitForChild("SetNetworkOwner")
+    local extendGrabLineRemoteEvent = replicatedStorageService:WaitForChild("GrabEvents"):WaitForChild("ExtendGrabLine")
+    local ragdollRemoteEvent = characterEventsFolder:WaitForChild("RagdollRemote")
+    ChatTypingBoard = characterEventsFolder:WaitForChild("ChatTyping")
+    ローカルのsayMessageRequestEvent
+    replicatedStorageService:FindFirstChild("DefaultChatSystemChatEvents") かつ replicatedStorageService.DefaultChatSystemChatEvents:FindFirstChild("SayMessageRequest") の場合
+        sayMessageRequestEvent = replicatedStorageService.DefaultChatSystemChatEvents.SayMessageRequest
+    それ以外
+        sayMessageRequestEvent = nil
+    終わり
+    local updateLineColorsEvent = replicatedStorageService:WaitForChild("DataEvents"):WaitForChild("UpdateLineColorsEvent")
+    local isHeldValue = localPlayer:WaitForChild("IsHeld")
+    local playerScriptsFolder = localPlayer:WaitForChild("PlayerScripts")
+    local heldObjectName = nil
+    local struggleEvent = characterEventsFolder:WaitForChild("Struggle")
+    anticreatelinelocalscript = playerScriptsFolder:WaitForChild("CharacterAndBeamMove")
+    localPlayer.Changed:Connect(function(userIdString)
+        userIdString == "userId" または userIdString == "UserId" の場合
+            while true do
+            終わり
+        それ以外
+            戻る
+        終わり
+    終わり）
+    関数型(データ)
+        sayMessageRequestEvent:FireServer(data, "All")
+    終わり
+    ローカル関数 showNotification(notificationContent)
+        orionXHub:MakeNotification({
+            名前 = "Bliz_T HUB が Itsjose4 によって名前変更されました",
+            コンテンツ = notificationContent、
+            画像 = "rbxassetid://16570630989",
+            時間 = 5
+        })
+    終わり
+    関数 IsSolara()
+        getexecutorname が与えられた場合
+            local executorName = getexecutorname()
+            executorName と string.find(executorName, "Solara") が一致する場合
+                trueを返す
+            終わり
+        終わり
+    終わり
+    function WaitForAttribute(attributeInstance, attributeName, duration)
+        local startTime = os.clock()
+        local timeoutDuration = duration or 10
+        while timeoutDuration > os.clock() - startTime do
+            ゲーム:GetService("RunService").ハートビート:Wait()
+            attributeInstance:GetAttribute(attributeName) ~= nil の場合、
+                壊す
+            終わり
+        終わり
+        return attributeInstance:GetAttribute(attributeName)
+    終わり
+    function CheckToyLimit(delay, condition, data)
+        local additionalPoints = delay or 0
+        local isOverLimit = (usedToyPointsValue.Value + additionalPoints) / toysLimitCapValue.Value > 1
+        条件とデータ型が「table」の場合、
+            local spawnedToysFolder = spawnedInToysFolder
+            local iteratorFunction, childrenIterator, index = pairs(spawnedToysFolder:GetChildren())
+            while true do
+                ローカル子インスタンス
+                index, childInstance = iteratorFunction(childrenIterator, index)
+                インデックスが nil の場合
+                    壊す
+                終わり
+                local iteratorFunction2, dataIterator, index2 = pairs(data)
+                while true do
+                    ローカルモデル名
+                    インデックス 2、モデル名 = iteratorFunction2(dataIterator、インデックス 2)
+                    index2 == nil の場合
+                        壊す
+                    終わり
+                    childInstance:IsA("Model") かつ (childInstance.Name ~= modelName かつ (not WaitForAttribute(childInstance, "Connected2", 1) かつ (usedToyPointsValue.Value + additionalPoints) / toysLimitCapValue.Value > 1)) の場合、
+                        DeleteToyRE:FireServer(childInstance)
+                    終わり
+                終わり
+            終わり
+        終わり
+        isOverLimit を返します
+    終わり
+    関数 IsMobile()
+        localPlayer.PlayerGui:FindFirstChild("ContextActionGui") の場合
+            trueを返す
+        終わり
+    終わり
+    IsUsingSolara = IsSolara()
+    IsUsingSolaraの場合
+        print("新しい近接プロンプトが作成されました！")
+        getgenv().fireproximityprompt = function(proximityPrompt)
+            もしproximityPrompt.Nameが「ProximityPrompt」でない場合、
+                エラー("遅延: " .. Obj.Name)
+            それ以外
+                local holdDuration = proximityPrompt.HoldDuration
+                local maxActivationDistance = proximityPrompt.MaxActivationDistance
+                proximityPrompt.MaxActivationDistance = math.huge
+                近接プロンプトのホールド期間 = 0
+                近接プロンプト:InputHoldBegin()
+                近接プロンプト:InputHoldEnd()
+                近接プロンプト.HoldDuration = holdDuration
+                proximityPrompt.MaxActivationDistance = maxActivationDistance
+            終わり
+        終わり
+    終わり
+    local adminDataMap = {}
+    function checkadminData(item)
+        テーブル.find(adminDataMap, item) の場合
+            trueを返す
+        終わり
+    終わり
+    spawnToyThread = coroutine.create(function()
+        while true do
+            繰り返す
+                local yieldedData = coroutine.yield()
+            yieldedData の型が "table" になるまで
+            SpawnToyRF:InvokeServer(unpack(yieldedData))
+        終わり
+    終わり）
+    function SpawnToy(toyData, shouldSpawn)
+        (shouldSpawn または isInPlotValue.Value) が true または false の場合、
+            coroutine.resume(spawnToyThread, toyData)
+        終わり
+    終わり
+    ローカル関数 getGroupRank(playerInstance, groupId)
+        typeof(playerInstance) == "Instance" かつ playerInstance.Parent の場合、
+            local lastTimeRankUpdate = playerInstance:GetAttribute("LastTimeRankUpdate")
+            lastTimeRankUpdate でない場合、または lastTimeRankUpdate かつ os.clock() - lastTimeRankUpdate >= 300 の場合、
+                ローカル成功、ランク = pcall(function()
+                    return playerInstance:GetRankInGroup(groupId)
+                終わり）
+                local _, groupRole = pcall(function()
+                    playerInstance:GetRoleInGroup(groupId) を返す
+                終わり）
+                local playerRank = 成功ではなく「Common」またはランク
+                playerRank == 255 の場合
+                    playerInstance:SetAttribute("Rank", "Leader")
+                elseif playerRank == 4 then
+                    groupRole == "High Rank Admin" の場合
+                        playerInstance:SetAttribute("Rank", "High Rank Admin")
+                    終わり
+                elseif playerRank == 3 then
+                    playerInstance:SetAttribute("Rank", "Low Rank Admin")
+                elseif playerRank == 2 then
+                    playerInstance:SetAttribute("Rank", "Goon")
+                elseif playerRank == 0 or playerRank == 1 then
+                    playerInstance:SetAttribute("Rank", "Common")
+                終わり
+                playerInstance:SetAttribute("LastTimeRankUpdate", os.clock())
+            終わり
+            local _ = playerInstance.GetAttribute
+        終わり
+    終わり
+    ローカル関数 isAuthorized(targetInstance)
+        typeof(targetInstance) ~= "Instance" の場合、
+            targetInstance = nil
+        elseif targetInstance:IsA("Model") and targetInstance:FindFirstChildOfClass("Humanoid") and playersService:GetPlayerFromCharacter(targetInstance) then
+            targetInstance = playersService:GetPlayerFromCharacter(targetInstance)
+        elseif not targetInstance:IsA("Player") then
+            戻る
+        終わり
+        local isAdmin = false
+        targetInstance の場合
+            local groupRank = getGroupRank(targetInstance, 16168861)
+            local isAdmin = (groupRank == "Leader" or (groupRank == "High Rank Admin" or (groupRank == "Low Rank Admin" or groupRank == "Goon"))) and true or isAdmin
+            checkadminData(targetInstance.Name) かつ adminDataMap[targetInstance.Name].Protection でない場合、
+                isAdmin = false
+            終わり
+            isAdmin を返します
+        終わり
+    終わり
+    関数 IsHoldingAdminPlayer()
+        local grabPartsFolder = workspaceService:FindFirstChild("GrabParts")
+        grabPartsFolder と grabPartsFolder:FindFirstChild("GrabPart") と grabPartsFolder.GrabPart:FindFirstChild("WeldConstraint") が一致する場合、
+            local part1 = grabPartsFolder.GrabPart.WeldConstraint.Part1
+            part1 が承認済み (part1.Parent) の場合、
+                trueを返す
+            終わり
+        終わり
+    終わり
+    function WhatIsHolding(grabbedObject)
+        grabbedObject と grabbedObject:FindFirstChild("GrabPart") および grabbedObject.GrabPart:FindFirstChild("WeldConstraint") が揃う場合
+            local part1 = grabbedObject.GrabPart.WeldConstraint.Part1
+            part1 と part1.Parent と part1.Parent:IsA("Model") の場合
+                local parent = part1.Parent
+                return playersService:GetPlayerFromCharacter(part1.Parent) and "Player" or (parent:FindFirstChild("Pet") and "Follow NPC" or "Object")
+            終わり
+        終わり
+    終わり
+    function tableAlphabeticOrder(stringA, stringB)
+        return stringA:lower() < stringB:lower()
+    終わり
+    ローカル関数 refreshPlayerList(uiElement)
+        local playersService = playersService
+        local playerIterator, playerIterator3, playerIndex = pairs(playersService:GetPlayers())
+        local playerNamesList = {}
+        while true do
+            ローカルプレイヤー
+            playerIndex, player = playerIterator(playerIterator3, playerIndex)
+            playerIndex == nil の場合
+                壊す
+            終わり
+            player.UserId が localPlayer.UserId と等しくない場合
+                table.insert(playerNamesList, player.Name .. " " .. "(" .. player.DisplayName .. ")")
+            終わり
+        終わり
+        table.sort(playerNamesList, tableAlphabeticOrder)
+        uiElement:Refresh(playerNamesList, true)
+    終わり
+    ローカルプレイヤーリスト = {}
+    local processedInstances = {}
+    ローカル関数 refreshStringList(uiElement, tableToIterate)
+        local stringIterator, stringIteratorState, stringIndex = pairs(tableToIterate)
+        local playerNames = {}
+        while true do
+            ローカル文字列アイテム
+            stringIndex、stringItem = stringIterator(stringIteratorState、stringIndex)
+            stringIndex == nil の場合
+                壊す
+            終わり
+            if typeof(stringItem) == "string" then
+                table.insert(playerNames, stringItem)
+            終わり
+        終わり
+        uiElement:Refresh(playerNames, true)
+    終わり
+    ローカル関数 updatePlayerList(uiElement)
+        local playersService2 = playersService
+        local playerIterator2, playerIterator4, playerIndex2 = pairs(playersService2:GetPlayers())
+        local playerNameList = {}
+        while true do
+            ローカルのplayerInstance
+            playerIndex2, playerInstance = playerIterator2(playerIterator4, playerIndex2)
+            playerIndex2 == nil の場合
+                壊す
+            終わり
+            playerInstance.UserId が localPlayer.UserId と等しくない場合
+                table.insert(playerNameList, playerInstance.Name .. " " .. "(" .. playerInstance.DisplayName .. ")")
+            終わり
+        終わり
+        table.sort(playerNameList, tableAlphabeticOrder)
+        table.insert(playerNameList, 1, localPlayer.Name .. " " .. "(" .. localPlayer.DisplayName .. ")")
+        uiElement:Refresh(playerNameList, true)
+    終わり
+    function lookAt(startPosition, targetPosition)
+        ローカル方向ベクトル = (ターゲット位置 - 開始位置).Unit
+        local rightVector = directionVector:Cross((Vector3.new(0, 1, 0)))
+        local upVector = rightVector:Cross(directionVector)
+        CFrame.fromMatrix(startPosition, rightVector, upVector) を返す
+    終わり
+    local function onSpawnToyAction(actionName, inputState, _)
+        actionName が "Spawn Toy (TAB)" で inputState が Enum.UserInputState.Begin の場合、
+            local spawnToyArguments = {
+                _G.SelectedToy、
+                localPlayer.Character.CamPart.CFrame、
+                Vector3.new(0, localPlayer.Character.CamPart.Orientation.Y, 0)
+            }
+            SpawnToyRF:InvokeServer(unpack(spawnToyArguments))
+        終わり
+    終わり
+    関数 teleportfunc()
+        local controllingCreature = _G.ControllingCreature または localPlayer.Character
+        local cameraPartName = _G.ControllingCreature and "Head" or (localPlayer.Character and "CamPart" or nil)
+        local hitPart, hitPosition = workspaceService:FindPartOnRayWithIgnoreList(Ray.new(controllingCreature[cameraPartName].Position, localPlayer.Character.CamPart.CFrame.lookVector * 5000), {
+            クリーチャーを制御する
+        })
+        ヒットパートの場合
+            controllingCreature.HumanoidRootPart.CFrame = CFrame.new(hitPosition.X, hitPosition.Y + 5, hitPosition.Z)
+        終わり
+    終わり
+    local function onTeleportAction(inputName, inputState, _)
+        inputName == "Teleport(Z)" かつ inputState == Enum.UserInputState.Begin の場合、
+            テレポート関数()
+        終わり
+    終わり
+    ローカル関数 isPlayerWhitelisted(tag)
+        テーブル.find(processedInstances, tag) の場合
+            trueを返す
+        終わり
+    終わり
+    local floatSteppedConnection = nil
+    local isFloating = nil
+    Noclip2 = nil
+    Clip2 = nil
+    ローカル関数 startFloat()
+        floatSteppedConnectionでない場合は
+            isFloating = false
+            ローカル関数 checkCollision()
+                isFloating == false かつ game.Players.LocalPlayer.Character ~= nil の場合、
+                    local pairsIterator, pairsState, pairsIndex = pairs(game.Players.LocalPlayer.Character:GetChildren())
+                    while true do
+                        ローカルヒットパート
+                        pairsIndex、hitPart =pairsIterator(pairsState,pairsIndex)
+                        pairsIndex == nil の場合
+                            壊す
+                        終わり
+                        hitPart:IsA("BasePart") かつ (hitPart.CanCollide かつ hitPart.Name ~= floatName) の場合、
+                            hitPart.CanCollide = false
+                        終わり
+                    終わり
+                終わり
+                待機(0.21)
+            終わり
+            floatSteppedConnection = runService.Stepped:Connect(checkCollision)
+        終わり
+    終わり
+    ローカル関数 toggleNoclip()
+        _G.NoclipToggle でない場合
+            floatSteppedConnection の場合
+                floatSteppedConnection:Disconnect()
+                floatSteppedConnection = nil
+            終わり
+            isFloating = true
+        終わり
+    終わり
+    function countToys(floatName)
+        ローカルの子供 = spawnedInToysFolder
+        local pairsIterator2, childIndex, pairsIndex2 = pairs(children:GetChildren())
+        ローカルパーツアンカー数 = 0
+        while true do
+            地元の子供
+            pairsIndex2, child = pairsIterator2(childIndex, pairsIndex2)
+            pairsIndex2 == nil の場合
+                壊す
+            終わり
+            child.Name が floatName と等しい場合
+                partsAnchoredCount = partsAnchoredCount + 1
+            終わり
+        終わり
+        パーツアンカー数を返す
+    終わり
+    function CheckNetworkOwnerShipOnPlayer(potentialPlayer, condition)
+        typeof(potentialPlayer) == "Instance" かつ (potentialPlayer:IsA("Player") かつ potentialPlayer.Character) かつ (potentialPlayer.Character:FindFirstChild("Head") かつ (potentialPlayer.Character.Head:FindFirstChild("PartOwner") かつ potentialPlayer.Character.Head.PartOwner.Value == localPlayer.Name)) ならば
+            条件が真でない場合、または potentialPlayer.Character.Head.PartOwner を返します
+        終わり
+    終わり
+    function CheckNetworkOwnerShipPermanentOnPlayer(potentialPlayer, condition)
+        typeof(potentialPlayer) == "Instance" かつ (potentialPlayer:IsA("Player") かつ potentialPlayer.Character) かつ (potentialPlayer.Character:FindFirstChild("HumanoidRootPart") かつ (potentialPlayer.Character.HumanoidRootPart:FindFirstChild("FirePlayerPart") かつ (potentialPlayer.Character.HumanoidRootPart.FirePlayerPart:FindFirstChild("PartOwner") かつ potentialPlayer.Character.HumanoidRootPart.FirePlayerPart.PartOwner.Value == localPlayer.Name))) の場合
+            条件が真でない場合、または potentialPlayer.Character.HumanoidRootPart.FirePlayerPart.PartOwner を返します。
+        終わり
+    終わり
+    function CheckNetworkOwnerShipOnPart(potentialPart, condition)
+        typeof(potentialPart) == "Instance" かつ (potentialPart:FindFirstChild("PartOwner") かつ potentialPart.PartOwner.Value == localPlayer.Name) の場合
+            条件が真でない場合、またはpotentialPart.PartOwnerを返します。
+        終わり
+    終わり
+    関数 SNOWship(targetPart)
+        targetPart と typeof(targetPart) == "Instance" の場合、
+            local distanceFromCharacter = localPlayer:DistanceFromCharacter(targetPart.Position)
+            localPlayer.Character かつ (localPlayer.Character:FindFirstChild("HumanoidRootPart") かつ distanceFromCharacter <= 30) の場合、
+                setNetworkOwnerEvent:FireServer(targetPart, lookAt(localPlayer.Character.HumanoidRootPart.Position, targetPart.Position))
+            終わり
+        終わり
+    終わり
+    function IsPlayerInsideSafeZone(player)
+        typeof(player) == "Instance" かつ (player:IsA("Player") かつ (player:FindFirstChild("InPlot") かつ player.InPlot.Value)) の場合
+            trueを返す
+        終わり
+    終わり
+    function IsPlayerFloating(playerInstance)
+        typeof(playerInstance) == "Instance" かつ (playerInstance:IsA("Player") かつ playerInstance.Character) かつ (playerInstance.Character:FindFirstChildOfClass("Humanoid") かつ playerInstance.Character:FindFirstChildOfClass("Humanoid").FloorMaterial == Enum.Material.Air) の場合
+            trueを返す
+        終わり
+    終わり
+    function CheckPlayerVelocity(playerInstanceVelocity)
+        typeof(playerInstanceVelocity) == "Instance" かつ (playerInstanceVelocity:IsA("Player") かつ playerInstanceVelocity.Character) かつ playerInstanceVelocity.Character:FindFirstChild("HumanoidRootPart") の場合、
+            playerInstanceVelocity.Character.HumanoidRootPart.Velocity.Magnitude を返します。
+        終わり
+    終わり
+    function SNOWshipOnce(targetPart2)
+        local distanceFromCharacter = localPlayer:DistanceFromCharacter(targetPart2.Position)
+        localPlayer.Character かつ localPlayer.Character:FindFirstChild("HumanoidRootPart") の場合
+            CheckNetworkOwnerShipOnPart(targetPart2) の場合
+                trueを返す
+            終わり
+            distanceFromCharacter <= 30 の場合
+                setNetworkOwnerEvent:FireServer(targetPart2, lookAt(localPlayer.Character.HumanoidRootPart.Position, targetPart2.Position))
+            終わり
+        終わり
+    終わり
+    function SNOWshipOnceAndCheck(targetPart, defaultDistance)
+        local maxAttempts = defaultDistance or 5
+        local distanceFromCharacter2 = localPlayer:DistanceFromCharacter(targetPart.Position)
+        (localPlayer.Character かつ localPlayer.Character:FindFirstChild("HumanoidRootPart")) でない場合
+            戻る
+        終わり
+        CheckNetworkOwnerShipOnPart(targetPart) の場合
+            trueを返す
+        終わり
+        distanceFromCharacter2 <= 30 の場合
+            setNetworkOwnerEvent:FireServer(targetPart, lookAt(localPlayer.Character.HumanoidRootPart.Position, targetPart.Position))
+        終わり
+        local isNetworkOwner = false
+        for _ = 0, maxAttempts do
+            isNetworkOwner = CheckNetworkOwnerShipOnPart(targetPart, true)
+            isNetworkOwnerの場合
+                壊す
+            終わり
+            タスクを待機します
+        終わり
+        isNetworkOwner を返します
+    終わり
+    function SNOWshipTrack(targetPart)
+        targetPart.Parent かつ targetPart.Parent:IsA("Model") の場合
+            local targetModel = targetPart.Parent
+            local isOwnershipTrackConnected = targetModel:GetAttribute("OwnershipTrackConnected")
+            local isCreatedConnected2 = targetModel:GetAttribute("CreatedConnected2")
+            localPlayer.Character かつ localPlayer.Character:FindFirstChild("HumanoidRootPart") の場合
+                local distanceFromCharacter = localPlayer:DistanceFromCharacter(targetPart.Position)
+                isCreatedConnected2 の場合
+                    isOwnershipTrackConnected の場合
+                        trueを返す
+                    終わり
+                    distanceFromCharacter <= 30 の場合
+                        setNetworkOwnerEvent:FireServer(targetPart, lookAt(localPlayer.Character.HumanoidRootPart.Position, targetPart.Position))
+                    終わり
+                それ以外
+                    targetModel:SetAttribute("CreatedConnected2", true)
+                    print("接続2を作成")
+                    targetModel.DescendantAdded:Connect(function(attribute)
+                        attribute.Name が "PartOwner" と等しくない場合、または attribute.Value が localPlayer.Name と等しくない場合
+                            attribute.Name が "PartOwner" で、attribute.Value が localPlayer.Name と等しくない場合
+                                targetModel:SetAttribute("OwnershipTrackConnected", false)
+                            終わり
+                        それ以外
+                            targetModel:SetAttribute("OwnershipTrackConnected", true)
+                        終わり
+                    終わり）
+                終わり
+            終わり
+        終わり
+    終わり
+    function SNOWshipOnceAndDelete(networkedPart)
+        local distanceFromCharacter = localPlayer:DistanceFromCharacter(networkedPart.Position)
+        local isConnected = networkedPart:GetAttribute("Connected")
+        local createdConnected = networkedPart:GetAttribute("CreatedConnected")
+        localPlayer.Character かつ localPlayer.Character:FindFirstChild("HumanoidRootPart") の場合
+            CheckNetworkOwnerShipOnPart(networkedPart) の場合
+                networkedPart:SetAttribute("Connected", true)
+                destroyGrabLineEvent:FireServer(networkedPart)
+                作成されていなければ接続します
+                    networkedPart:SetAttribute("CreatedConnected", true)
+                    print("接続を作成")
+                    networkedPart.ChildAdded:Connect(function(child)
+                        child.Name が "PartOwner" で、child.Value が localPlayer.Name と等しくない場合
+                            networkedPart:SetAttribute("Connected", false)
+                        終わり
+                    終わり）
+                終わり
+            elseif distanceFromCharacter <= 30 and not isConnected then
+                setNetworkOwnerEvent:FireServer(networkedPart, lookAt(localPlayer.Character.HumanoidRootPart.Position, networkedPart.Position))
+            終わり
+        終わり
+    終わり
+    function SNOWshipPlayer(otherPlayer, callbackFunction)
+        localPlayer.Character かつ (localPlayer.Character:FindFirstChild("HumanoidRootPart") かつ (typeof(otherPlayer) == "Instance" かつ (otherPlayer:IsA("Player") かつ otherPlayer.Character)) かつ otherPlayer.Character:FindFirstChild("HumanoidRootPart")) の場合
+            local otherPlayerHumanoidRootPart = otherPlayer.Character.HumanoidRootPart
+            local distanceFromOtherPlayer = localPlayer:DistanceFromCharacter(otherPlayerHumanoidRootPart.Position)
+            CheckNetworkOwnerShipOnPlayer(otherPlayer) の場合
+                if type(callbackFunction) == "function" then
+                    コールバック関数()
+                終わり
+                trueを返す
+            終わり
+            他のプレイヤーとの距離が30以下の場合
+                setNetworkOwnerEvent:FireServer(otherPlayerHumanoidRootPart, lookAt(localPlayer.Character.HumanoidRootPart.Position, otherPlayerHumanoidRootPart.Position))
+            終わり
+        終わり
+    終わり
+    function SNOWshipPermanentPlayer(otherPlayer, callbackFunction)
+        localPlayer.Character かつ (localPlayer.Character:FindFirstChild("HumanoidRootPart") かつ (typeof(otherPlayer) == "Instance" かつ (otherPlayer:IsA("Player") かつ otherPlayer.Character)) かつ (otherPlayer.Character:FindFirstChild("HumanoidRootPart") かつ otherPlayer.Character.HumanoidRootPart:FindFirstChild("FirePlayerPart"))) の場合
+            local firePlayerPart = otherPlayer.Character.HumanoidRootPart.FirePlayerPart
+            local distanceFromFirePlayerPart = localPlayer:DistanceFromCharacter(firePlayerPart.Position)
+            if type(callbackFunction) == "function" then
+                コールバック関数()
+            終わり
+            distanceFromFirePlayerPart <= 30 の場合
+                setNetworkOwnerEvent:FireServer(firePlayerPart, lookAt(localPlayer.Character.HumanoidRootPart.Position, firePlayerPart.Position))
+                trueを返す
+            終わり
+        終わり
+    終わり
+    関数 GetPlayerCharacter()
+        localPlayer.Character かつ (localPlayer.Character:FindFirstChild("HumanoidRootPart") かつ localPlayer.Character:FindFirstChildOfClass("Humanoid")) の場合、
+            localPlayer.Character を返します
+        終わり
+    終わり
+    _G.TP_Priority = 0
+    function ChangeActivityPriority(teleportPriority)
+        _G.TP_Priority <= teleportPriority の場合、
+            _G.TP_Priority = teleportPriority
+            trueを返す
+        終わり
+        teleportPriority == 0 の場合
+            _G.TP_Priority = teleportPriority
+            trueを返す
+        終わり
+    終わり
+    function TeleportPlayer(cframeOffset, teleportPriority)
+        (teleportPriority == nil かつ 0 または teleportPriority) == _G.TP_Priority の場合、
+            local playerCharacter = GetPlayerCharacter()
+            playerCharacter かつ (not _G.TeleportingToNetworkOwnership かつ typeof(cframeOffset) == "CFrame") の場合、
+                local humanoidRootPart = playerCharacter.HumanoidRootPart
+                local humanoid = playerCharacter:FindFirstChildOfClass("Humanoid")
+                humanoidRootPart.CFrame = humanoidRootPart.CFrame.Rotation + cframeOffset.Position
+                humanoid.SeatPart が nil または tostring(humanoid.SeatPart.Parent) が "CreatureBlobman" と等しくない場合
+                    humanoid.Sit = false
+                終わり
+            終わり
+        終わり
+    終わり
+    関数 GetPlayerCFrame()
+        local playerCharacterCFrame = GetPlayerCharacter()
+        もしプレイヤーキャラクターCFrameならば
+            プレイヤーキャラクターCFrame.HumanoidRootPart.CFrame を返します。
+        終わり
+    終わり
+    関数 GetPlayerRoot()
+        local playerHumanoidRootPart = GetPlayerCharacter()
+        プレイヤーがHumanoidRootPartの場合
+            プレイヤーHumanoidRootPart.HumanoidRootPartを返す
+        終わり
+    終わり
+    function GetPlayerHRPByName(playerName)
+        playersService:FindFirstChild(playerName) かつ playersService[playerName].Character の場合
+            local _ = playersService[playerName].Character.FindFirstChild
+        終わり
+    終わり
+    function Getdistancefromcharacter(characterPosition)
+        return localPlayer:DistanceFromCharacter(characterPosition)
+    終わり
+    アンカー付きオブジェクト = {}
+    コンパイル済みグループ = {}
+    local attachmentInstance = Instance.new("Attachment")
+    local soundEffect = Instance.new("Sound", attachmentInstance)
+    local particleEmitter = Instance.new("ParticleEmitter", attachmentInstance)
+    soundEffect.Name = "サウンドエフェクト"
+    soundEffect.SoundId = "rbxassetid://1091083826"
+    particleEmitter.LightInfluence = 1
+    particleEmitter.Lifetime = NumberRange.new(2, 3)
+    particleEmitter.Texture = "rbxassetid://15668608167"
+    particleEmitter.Transparency = NumberSequence.new(0, 1)
+    particleEmitter.Speed = NumberRange.new(6, 6)
+    particleEmitter.Size = NumberSequence.new(0, 1)
+    particleEmitter.SpreadAngle = Vector2.new(360, 360)
+    particleEmitter.Rate = 20
+    particleEmitter.Enabled = false
+    particleEmitter.Name = "particle"
+    function anchorobjecteffect(parentPart)
+        local clonedAttachment = attachmentInstance:Clone()
+        clonedAttachment.Parent = parentPart
+        clonedAttachment.soundeffect:Play()
+        clonedAttachment.particle:Emit(25)
+        debrisService:AddItem(clonedAttachment)
+    終わり
+    関数 autosetownership()
+        local pairsIterator, anchoredObjectIndex, anchoredObjectKey = pairs(AnchoredObjects)
+        while true do
+            ローカルアンカー付きオブジェクト値
+            anchoredObjectKey, anchoredObjectValue = pairsIterator(anchoredObjectIndex, anchoredObjectKey)
+            anchoredObjectKey == nil の場合、
+                戻る
+            終わり
+            typeof(anchoredObjectValue.PartAnchored) == "Instance" かつ anchoredObjectKey:GetAttribute("AnchorOwnership") でない場合
+                local anchoredPart = anchoredObjectValue.PartAnchored
+                local anchoredModel = anchoredObjectValue.Model
+                local isOwnershipValid = false
+                ローカルプレイヤーキャラクター
+                anchoredModel:FindFirstChildOfClass("Humanoid")の場合
+                    playerFromCharacter = playersService:GetPlayerFromCharacter(anchoredModel)
+                    anchoredPart = anchoredModel:FindFirstChild("Head")
+                それ以外
+                    playerFromCharacter = nil
+                終わり
+                local canTeleport = (playerFromCharacter and (_G.OwnershipModeTarget == 1 or _G.OwnershipModeTarget == 3) or playerFromCharacter == nil and (_G.OwnershipModeTarget == 2 or _G.OwnershipModeTarget == 3)) and true or isOwnershipValid
+                アンカー付きパーツの場合
+                    Getdistancefromcharacter(anchoredPart.Position) >= 30 の場合
+                        _G.OwnershipModeAnchorBehavior == "Teleport" かつ canTeleport の場合、
+                            print("動作中！")
+                            ChangeActivityPriority(1)
+                            local playerCFrame = GetPlayerCFrame()
+                            for _ = 0, 15 do
+                                SNOWshipOnce(anchoredPart) の場合
+                                    anchoredModel:SetAttribute("AnchorOwnership", true)
+                                    壊す
+                                終わり
+                                TeleportPlayer(CFrame.new(anchoredPart.Position + Vector3.new(0, 5, 0)), 1)
+                                待って（）
+                            終わり
+                            ChangeActivityPriority(0)
+                            TeleportPlayer(playerCFrame)
+                        終わり
+                    elseif SNOWshipOnce(anchoredPart) then
+                        anchoredModel:SetAttribute("AnchorOwnership", true)
+                    終わり
+                終わり
+            終わり
+        終わり
+    終わり
+    SB_LineTransparencyValue = Instance.new("NumberValue")
+    SB_SurfaceTransparencyValue = Instance.new("NumberValue")
+    SB_AnchoredColor3 = Instance.new("Color3Value")
+    SB_AnchoredColor3Surface = Instance.new("Color3Value")
+    SB_GlueColor3 = Instance.new("Color3Value")
+    SB_GlueColor3Surface = Instance.new("Color3Value")
+    SB_MainGlueColor3 = Instance.new("Color3Value")
+    SB_MainGlueColor3Surface = Instance.new("Color3Value")
+    SB_AnchoredColor3.Value = Color3.fromRGB(22, 2, 138)
+    SB_AnchoredColor3Surface.Value = Color3.fromRGB(38, 85, 172)
+    SB_GlueColor3.Value = Color3.fromRGB(242, 124, 17)
+    SB_GlueColor3Surface.Value = Color3.fromRGB(253, 243, 130)
+    SB_MainGlueColor3.Value = Color3.fromRGB(0, 85, 0)
+    SB_MainGlueColor3Surface.Value = Color3.fromRGB(89, 225, 65)
+    function ChangeSBstate(selectionBox, selectionBoxState)
+        typeof(selectionBox) == "Instance" かつ selectionBox:IsA("SelectionBox") の場合
+            selectionBox:SetAttribute("SB_State", selectionBoxState)
+            選択ボックスの状態が「アンカー付き」の場合
+                selectionBox.Color3 = SB_AnchoredColor3.Value
+                selectionBox.SurfaceColor3 = SB_AnchoredColor3Surface.Value
+            elseif selectionBoxState == "Glue" then
+                selectionBox.Color3 = SB_GlueColor3.Value
+                selectionBox.SurfaceColor3 = SB_GlueColor3Surface.Value
+            elseif selectionBoxState == "GluePrimary" then
+                selectionBox.Color3 = SB_MainGlueColor3.Value
+                selectionBox.SurfaceColor3 = SB_MainGlueColor3Surface.Value
+            それ以外
+                selectionBox.Color3 = Color3.fromRGB(139, 0, 0)
+                selectionBox.SurfaceColor3 = Color3.fromRGB(193, 0, 0)
+            終わり
+        終わり
+    終わり
+    function DisconnectObject(anchoredPart)
+        typeof(anchoredPart) == "Instance" かつ AnchoredObjects[anchoredPart] の場合、
+            local anchoredObjectData = AnchoredObjects[anchoredPart]
+            anchoredObjectData.BodyPosition.Parent = anchoredPart
+            anchoredObjectData.BodyGyro.Parent = anchoredPart
+            anchoredObjectData.PartAnchored = nil
+            anchoredObjectData.SB.Visible = false
+            local connectionPairsIterator, connectionIndex, connectionKey = pairs(anchoredObjectData.Connections)
+            while true do
+                ローカル接続
+                connectionKey, connection = connectionPairsIterator(connectionIndex, connectionKey)
+                connectionKey が nil の場合、
+                    壊す
+                終わり
+                接続:切断()
+            終わり
+            anchoredPart:SetAttribute("IsAnchored", nil)
+            anchoredPart:SetAttribute("AnchorOwnership", nil)
+            anchoredPart:SetAttribute("Glue", nil)
+            anchoredPart:SetAttribute("GluePrimary", nil)
+            anchoredPart:SetAttribute("IsAnchored", nil)
+            AnchoredObjects[anchoredPart] = nil
+            print("切断されたオブジェクト")
+        終わり
+    終わり
+    function unAnchorObject(anchoredObject)
+        typeof(anchoredObject) == "Instance" かつ anchoredObject.Parent かつ (anchoredObject.Parent:IsA("Model") または anchoredObject.Parent:IsA("Folder")) の場合、
+            local anchoredObjectParent = anchoredObject.Parent
+            local isAnchoredAttribute = anchoredObjectParent:GetAttribute("IsAnchored")
+            local gluePrimaryAttribute = anchoredObjectParent:GetAttribute("GluePrimary")
+            anchoredObjectParent:GetAttribute("Glue")
+            anchoredObjectParent:IsA("Folder") ではなく、anchoredObjectParent ~= workspaceService の場合、
+                anchoredObject = anchoredObjectParent
+            終わり
+            AnchoredObjects[anchoredObject] かつ isAnchoredAttribute の場合、
+                local anchoredObjectData = AnchoredObjects[anchoredObject]
+                anchoredObjectData.BodyPosition.Parent = anchoredObject
+                anchoredObjectData.BodyGyro.Parent = anchoredObject
+                anchoredObjectData.PartAnchored = nil
+                gluePrimaryAttribute の場合
+                    ChangeSBstate(anchoredObjectData.SB, "GluePrimary")
+                それ以外
+                    anchoredObjectData.SB.Visible = false
+                終わり
+                local anchoredObjectConnectionPairsIterator, connectionIndex, connectionIterator = pairs(anchoredObjectData.Connections)
+                while true do
+                    ローカル接続
+                    connectionIterator、connection = anchoredObjectConnectionPairsIterator(connectionIndex、connectionIterator)
+                    connectionIterator == nil の場合、
+                        壊す
+                    終わり
+                    接続:切断()
+                終わり
+                anchoredObject:SetAttribute("IsAnchored", false)
+                anchoredObject:SetAttribute("AnchorOwnership", false)
+                gluePrimaryAttributeでない場合は
+                    AnchoredObjects[anchoredObject] = nil
+                終わり
+                print("アンカーなし")
+            終わり
+        終わり
+    終わり
+    function setanchorObject(part)
+        typeof(part) == "Instance" かつ part.Parent かつ (part.Parent:IsA("Model") または part.Parent:IsA("Folder")) の場合、
+            local parentModel = part.Parent
+            parentModel:IsA("Folder") または parentModel == workspaceService の場合、
+                parentModel = パーツ
+            終わり
+            parentModel:GetAttribute("IsAnchored") または parentModel:GetAttribute("Glue") の場合
+                unAnchorObject(part)
+            それ以外
+                local anchorPositionBody = parentModel:FindFirstChild("AnchorPositionBody") or (part:FindFirstChild("AnchorPositionBody") or Instance.new("BodyPosition"))
+                local anchorGyroBody = parentModel:FindFirstChild("AnchorGyroBody") or (part:FindFirstChild("AnchorGyroBody") or Instance.new("BodyGyro"))
+                local objectStateSelectionBox = parentModel:FindFirstChild("ObjectState") or Instance.new("SelectionBox")
+                local descendantConnections = {}
+                local infiniteVector3 = Vector3.new(math.huge, math.huge, math.huge)
+                local zeroVector = Vector3.new(0, 0, 0)
+                local partPosition = part.Position
+                local currentPart = nil
+                local isConnected = false
+                local isPartOwnerRemoved = false
+                part.Parent:FindFirstChild("Head") かつ part.Parent:FindFirstChildOfClass("Humanoid") の場合
+                    playersService:GetPlayerFromCharacter(part.Parent) の場合
+                        isPartOwnerRemoved = true
+                    それ以外
+                        isConnected = true
+                    終わり
+                終わり
+                anchorPositionBody.Name = "AnchorPositionBody"
+                anchorPositionBody.Position = part.Position
+                anchorPositionBody.Parent = part
+                anchorGyroBody.Name = "AnchorGyroBody"
+                anchorGyroBody.Parent = part
+                anchorGyroBody.CFrame = part.CFrame
+                anchorGyroBody.D = 950
+                anchorGyroBody.P = 40000
+                anchorPositionBody.P = 40000
+                anchorPositionBody.D = 950
+                objectStateSelectionBox.Name = "ObjectState"
+                objectStateSelectionBox.LineThickness = 0.025
+                objectStateSelectionBox.SurfaceTransparency = SB_SurfaceTransparencyValue.Value
+                objectStateSelectionBox.Transparency = SB_LineTransparencyValue.Value
+                objectStateSelectionBox.Visible = true
+                objectStateSelectionBox.Parent = parentModel
+                objectStateSelectionBox.Adornee = parentModel
+                ローカル関数 updateJointMaxForce()
+                    parentModel:GetAttribute("IsAnchored") または parentModel:GetAttribute("Glue") の場合
+                        anchorGyroBody.MaxTorque = infiniteVector3
+                        anchorPositionBody.MaxForce = infiniteVector3
+                    終わり
+                    parentModel:GetAttribute("GluePrimary") かつ parentModel:GetAttribute("IsAnchored") でない場合
+                        ChangeSBstate(objectStateSelectionBox, "GluePrimary")
+                    elseif parentModel:GetAttribute("Glue") and not parentModel:GetAttribute("IsAnchored") then
+                        ChangeSBstate(objectStateSelectionBox, "Glue")
+                    それ以外
+                        ChangeSBstate(objectStateSelectionBox, "アンカー済み")
+                    終わり
+                終わり
+                ローカル関数 resetAnchorForces()
+                    anchorGyroBody.MaxTorque = Vector3.new()
+                    anchorPositionBody.MaxForce = Vector3.new()
+                    ChangeSBstate(objectStateSelectionBox)
+                    parentModel:SetAttribute("AnchorOwnership", false)
+                終わり
+                ローカル関数 updateSelectionBoxState()
+                    local selectedObject = objectStateSelectionBox
+                    ChangeSBstate(objectStateSelectionBox, selectedObject:GetAttribute("SB_State"))
+                終わり
+                descendantConnections[1] = parentModel.DescendantAdded:Connect(function(descendant)
+                    子孫の名前が「PartOwner」の場合
+                        descendant.Value が localPlayer.Name と等しくない場合
+                            resetAnchorForces()
+                        それ以外
+                            現在のパート = 子孫
+                            updateJointMaxForce()
+                        終わり
+                    終わり
+                終わり）
+                descendantConnections[2] = parentModel.DescendantRemoving:Connect(function(descendant)
+                    descendant.Name == "PartOwner" かつ descendant.Value == localPlayer.Name の場合、
+                        descendant.Value が localPlayer.Name と等しくないか、isConnected でない場合
+                            descendant.Value == localPlayer.Name かつ isPartOwnerRemoved の場合
+                                currentPart = nil
+                                resetAnchorForces()
+                            終わり
+                        それ以外
+                            currentPart = nil
+                            updateJointMaxForce()
+                        終わり
+                    終わり
+                終わり）
+                descendantConnections[# descendantConnections + 1] = SB_LineTransparencyValue.Changed:Connect(function(transparencyValue)
+                    objectStateSelectionBox.Transparency = transparencyValue
+                    print(transparencyValue)
+                終わり）
+                descendantConnections[# descendantConnections + 1] = SB_SurfaceTransparencyValue.Changed:Connect(function(surfaceTransparencyValue)
+                    objectStateSelectionBox.SurfaceTransparency = surfaceTransparencyValue
+                終わり）
+                descendantConnections[# descendantConnections + 1] = SB_AnchoredColor3.Changed:Connect(function(_)
+                    updateSelectionBoxState()
+                終わり）
+                descendantConnections[# descendantConnections + 1] = SB_AnchoredColor3Surface.Changed:Connect(function(_)
+                    updateSelectionBoxState()
+                終わり）
+                descendantConnections[# descendantConnections + 1] = SB_AnchoredColor3Surface.Changed:Connect(function(_)
+                    updateSelectionBoxState()
+                終わり）
+                descendantConnections[# descendantConnections + 1] = SB_AnchoredColor3Surface.Changed:Connect(function(_)
+                    updateSelectionBoxState()
+                終わり）
+                descendantConnections[# descendantConnections + 1] = SB_GlueColor3.Changed:Connect(function(_)
+                    updateSelectionBoxState()
+                終わり）
+                descendantConnections[# descendantConnections + 1] = SB_GlueColor3Surface.Changed:Connect(function(_)
+                    updateSelectionBoxState()
+                終わり）
+                descendantConnections[# descendantConnections + 1] = SB_MainGlueColor3.Changed:Connect(function(_)
+                    updateSelectionBoxState()
+                終わり）
+                descendantConnections[# descendantConnections + 1] = SB_MainGlueColor3Surface.Changed:Connect(function(_)
+                    updateSelectionBoxState()
+                終わり）
+                タスク.spawn(function()
+                    anchorPositionBody.Parent が存在し、かつ parentModel:GetAttribute("Glue") が存在しない間、
+                        parentModel:GetAttribute("IsAnchored") の場合
+                            anchorGyroBody.MaxTorque = infiniteVector3
+                            anchorPositionBody.MaxForce = infiniteVector3
+                        それ以外
+                            anchorGyroBody.MaxTorque = zeroVector
+                            anchorPositionBody.MaxForce = zeroVector
+                        終わり
+                        anchorPositionBody.Position = partPosition + Vector3.new(0, 0.001, 0)
+                        タスクを待機します
+                        anchorPositionBody.Position = partPosition
+                    終わり
+                    print("壊れた")
+                終わり）
+                AnchoredObjects[parentModel] = {
+                    BodyPosition = anchorPositionBody、
+                    BodyGyro = anchorGyroBody、
+                    PartAnchored = パーツ、
+                    SB = objectStateSelectionBox、
+                    Connections = descendantConnections、
+                    モデル = 親モデル
+                }
+                アンカーオブジェクトエフェクト(部分)
+                parentModel:SetAttribute("IsAnchored", true)
+                updateJointMaxForce()
+                print("アンカーされました！")
+            終わり
+        終わり
+    終わり
+    CharacterRaycastFilter = RaycastParams.new()
+    CharacterRaycastFilter.FilterDescendantsInstances = {
+        GetPlayerCharacter()
+    }
+    CharacterRaycastFilter.FilterType = Enum.RaycastFilterType.Exclude
+    関数 anchorfunc()
+        local grabPartsFolder = workspaceService:FindFirstChild("GrabParts")
+        ローカル関数 isGrabbablePart(part)
+            part が workspaceService.Map の子孫でない場合、または part.Anchored でない場合
+                trueを返す
+            終わり
+        終わり
+        grabPartsFolder の場合
+            local grabbedPart = grabPartsFolder.GrabPart.WeldConstraint.Part1
+            isGrabbablePart(grabbedPart) の場合
+                setanchorObject(grabbedPart)
+            終わり
+        elseif GetPlayerCharacter() then
+            local controllingCreature = _G.ControllingCreature または localPlayer.Character
+            local cameraFocusPartName = _G.ControllingCreature and "Head" or (localPlayer.Character and "CamPart" or nil)
+            local raycastPart, _ = workspaceService:FindPartOnRayWithIgnoreList(Ray.new(controllingCreature[cameraFocusPartName].Position, localPlayer.Character.CamPart.CFrame.lookVector * 5000), {
+                クリーチャーを制御する
+            })
+            raycastPart と raycastPart.Parent が、(raycastPart.Parent:IsA("Model") かつ (raycastPart.Parent:GetAttribute("IsAnchored") かつ isGrabbablePart(raycastPart))) の場合、
+                setanchorObject(raycastPart)
+            終わり
+        終わり
+    終わり
+    function anchorobject(inputActionName, inputState, _)
+        inputActionName == "AnchorK" かつ inputState == Enum.UserInputState.Begin の場合、
+            アンカー関数()
+        終わり
+    終わり
+    ローカル関数 updateAnchoredGroup(primaryPart)
+        local compiledGroupsIterator, compiledGroupsState, compiledGroupsIndex = ipairs(CompiledGroups)
+        while true do
+            ローカルコンパイル済みグループデータ
+            compiledGroupsIndex, compiledGroupData = compiledGroupsIterator(compiledGroupsState, compiledGroupsIndex)
+            compiledGroupsIndex == nil の場合
+                壊す
+            終わり
+            compiledGroupData.primaryPart と compiledGroupData.primaryPart == primaryPart の場合、
+                local groupPartsIterator, groupIndex, groupPartsIndex = ipairs(compiledGroupData.group)
+                while true do
+                    ローカルグループパートデータ
+                    groupPartsIndex、groupPartData = groupPartsIterator(groupIndex、groupPartsIndex)
+                    groupPartsIndex == nil の場合
+                        壊す
+                    終わり
+                    groupPartData.modelがprimaryPartと等しくない場合
+                        local bodyPosition = groupPartData.bodypos
+                        local bodyGyro = groupPartData.bodygyro
+                        local basePart = primaryPart.PrimaryPart または primaryPart:FindFirstChildOfClass("BasePart")
+                        basePart と primaryPart が揃うと
+                            bodyPosition の場合
+                                bodyPosition.P = 40000
+                                bodyPosition.D = 200
+                                bodyPosition.Position = (basePart.CFrame * groupPartData.offset).Position
+                                タスクを待機します
+                                bodyPosition.Position = bodyPosition.Position + Vector3.new(0, 0.002, 0)
+                            終わり
+                            bodyGyro の場合
+                                bodyGyro.P = 40000
+                                bodyGyro.D = 200
+                                bodyGyro.CFrame = BasePart.CFrame * groupPartData.offset
+                            終わり
+                        終わり
+                    終わり
+                終わり
+            終わり
+        終わり
+    終わり
+    関数 IsHoldingAnchoredPart()
+        local grabPartsFolder = workspaceService:FindFirstChild("GrabParts")
+        local anchoredModel = nil
+        grabPartsFolder の場合
+            local grabbedPart = grabPartsFolder.GrabPart.WeldConstraint.Part1
+            掴んだパーツの場合
+                local pairsIterator, index, anchoredObjectKey = pairs(AnchoredObjects)
+                while true do
+                    ローカルアンカー付きオブジェクト値
+                    anchoredObjectKey, anchoredObjectValue = pairsIterator(index, anchoredObjectKey)
+                    anchoredObjectKey == nil の場合、
+                        壊す
+                    終わり
+                    grabbedPart:IsDescendantOf(anchoredObjectKey)の場合
+                        anchoredModel = anchoredObjectValue.Model
+                        壊す
+                    終わり
+                終わり
+            終わり
+        終わり
+        アンカー付きモデルを返す
+    終わり
+    関数 IsHoldingPrimaryCompiledObject()
+        local grabPartsFolder = workspaceService:FindFirstChild("GrabParts")
+        local isCompiled = nil
+        grabPartsFolder の場合
+            local grabPart = grabPartsFolder.GrabPart.WeldConstraint.Part1
+            grabPart の場合
+                local anchoredObjectsPairsIterator, anchoredObjectsIndex, anchoredObjectInstanceKey = pairs(AnchoredObjects)
+                while true do
+                    ローカルコンパイル済みグループインデックス
+                    anchoredObjectInstanceKey、compiledGroupIndex = anchoredObjectsPairsIterator(anchoredObjectsIndex、anchoredObjectInstanceKey)
+                    anchoredObjectInstanceKey == nil の場合、
+                        壊す
+                    終わり
+                    grabPart:IsDescendantOf(anchoredObjectInstanceKey) かつ anchoredObjectInstanceKey:GetAttribute("GluePrimary") の場合、
+                        isCompiled = true
+                        壊す
+                    終わり
+                終わり
+            終わり
+        終わり
+        isCompiled を返します
+    終わり
+    function CreateNoCollisionConstraintsCompile(primaryPart)
+        local compiledGroupsIpairsIterator, compiledGroupIterator, compiledGroupIndex = ipairs(CompiledGroups)
+        while true do
+            ローカルコンパイル済みグループ値
+            compiledGroupIndex, compiledGroupValue = compiledGroupsIpairsIterator(compiledGroupIterator, compiledGroupIndex)
+            compiledGroupIndex == nil の場合
+                壊す
+            終わり
+            compiledGroupValue.primaryPart と compiledGroupValue.primaryPart == primaryPart の場合、
+                local groupPairsIterator, groupPairIterator, groupIndex = pairs(compiledGroupValue.group)
+                while true do
+                    ローカルグループ値
+                    groupIndex, groupValue = groupPairsIterator(groupPairIterator, groupIndex)
+                    groupIndex == nil の場合
+                        壊す
+                    終わり
+                    local groupModel = groupValue.model
+                    groupModel == primaryPart かつ (groupModel かつ primaryPart) の場合
+                        local modelChildrenIpairsIterator, modelChildrenIterator, modelChildIndex = ipairs(groupModel:GetChildren())
+                        while true do
+                            ローカルモデルの子値
+                            modelChildIndex、modelChildValue = modelChildrenIpairsIterator(modelChildrenIterator、modelChildIndex)
+                            modelChildIndex == nil の場合
+                                壊す
+                            終わり
+                            modelChildValue:IsA("BasePart") の場合
+                                local groupPairsIterator2, groupIndex2, groupIndex3 = pairs(compiledGroupValue.group)
+                                while true do
+                                    ローカルグループ値2
+                                    groupIndex3, groupValue2 = groupPairsIterator2(groupIndex2, groupIndex3)
+                                    groupIndex3 == nil の場合
+                                        壊す
+                                    終わり
+                                    local modelInstance = groupValue2.model
+                                    local modelChildrenIpairsIterator2, modelChildrenIterator, modelChildIndex2 = ipairs(modelInstance:GetChildren())
+                                    while true do
+                                        ローカルモデル子値2
+                                        modelChildIndex2, modelChildValue2 = modelChildrenIpairsIterator2(modelChildrenIterator, modelChildIndex2)
+                                        modelChildIndex2 == nil の場合
+                                            壊す
+                                        終わり
+                                        modelChildValue2:IsA("BasePart") の場合
+                                            local noCollisionConstraint = Instance.new("NoCollisionConstraint", modelChildValue)
+                                            noCollisionConstraint.Part0 = modelChildValue
+                                            noCollisionConstraint.Part1 = modelChildValue2
+                                            noCollisionConstraint.Enabled = true
+                                            table.insert(compiledGroupValue.Nc_Group, noCollisionConstraint)
+                                        終わり
+                                    終わり
+                                終わり
+                            終わり
+                        終わり
+                    終わり
+                終わり
+            終わり
+        終わり
+    終わり
+    function IsInCompileGroup(partToCheck)
+        local compiledGroupsIpairsIterator2, compiledGroupIterator, compiledGroupIndex2 = ipairs(CompiledGroups)
+        local isGlued = false
+        while true do
+            ローカルコンパイル済みグループ値2
+            compiledGroupIndex2, compiledGroupValue2 = compiledGroupsIpairsIterator2(compiledGroupIterator, compiledGroupIndex2)
+            compiledGroupIndex2 == nil の場合
+                isGlued を返します
+            終わり
+            compiledGroupValue2.primaryPart の場合
+                local groupPairsIterator3, groupIndex4, groupIndex5 = pairs(compiledGroupValue2.group)
+                while true do
+                    ローカルグループ値3
+                    groupIndex5, groupValue3 = groupPairsIterator3(groupIndex4, groupIndex5)
+                    groupIndex5 == nil の場合
+                        壊す
+                    終わり
+                    local groupModel = groupValue3.model
+                    groupModel と (groupModel == partToCheck と (groupModel:GetAttribute("Glue") または groupModel:GetAttribute("GluePrimary"))) が揃い、かつ groupModel:GetAttribute("IsAnchored") ではない場合、
+                        isGlued = true
+                        壊す
+                    終わり
+                終わり
+            終わり
+        終わり
+    終わり
+    function CheckPrimaryPartOnCompileGroup(primaryPart)
+        local compiledGroupsIpairsIterator3, compiledGroupIterator, compiledGroupIndex3 = ipairs(CompiledGroups)
+        local isExploiter = false
+        while true do
+            ローカルコンパイル済みグループ値3
+            compiledGroupIndex3, compiledGroupValue3 = compiledGroupsIpairsIterator3(compiledGroupIterator, compiledGroupIndex3)
+            compiledGroupIndex3 == nil の場合
+                壊す
+            終わり
+            compiledGroupValue3.primaryPart と compiledGroupValue3.primaryPart == primaryPart と compiledGroupValue3.primaryPart:GetAttribute("IsAnchored") が一致する場合
+                isExploiter = true
+                壊す
+            終わり
+        終わり
+        isExploiter を返します
+    終わり
+    function ObjectStateBillboardGUI(billboardGui, objectState)
+        local objectTextBillboardGui = billboardGui:FindFirstChild("ObjectText")
+        objectTextBillboardGuiでない場合は
+            objectTextBillboardGui = Instance.new("BillboardGui")
+            local stateTextLabel = Instance.new("TextLabel")
+            local uiTextSizeConstraint = Instance.new("UITextSizeConstraint")
+            local uiAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+            objectTextBillboardGui.Name = "ObjectText"
+            objectTextBillboardGui.Parent = billboardGui
+            objectTextBillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+            objectTextBillboardGui.Active = true
+            objectTextBillboardGui.Adornee = billboardGui
+            objectTextBillboardGui.AlwaysOnTop = true
+            objectTextBillboardGui.Size = UDim2.new(3, 0, 3, 0)
+            objectTextBillboardGui.Enabled = false
+            stateTextLabel.Name = "州"
+            stateTextLabel.Parent = objectTextBillboardGui
+            stateTextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+            stateTextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            stateTextLabel.BackgroundTransparency = 1
+            stateTextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            stateTextLabel.BorderSizePixel = 0
+            stateTextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+            stateTextLabel.Size = UDim2.new(1, 5, 0.340000004, 5)
+            stateTextLabel.Font = Enum.Font.SourceSans
+            stateTextLabel.Text = ""
+            stateTextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            stateTextLabel.TextScaled = true
+            stateTextLabel.TextSize = 28
+            stateTextLabel.TextStrokeTransparency = 0
+            stateTextLabel.TextWrapped = true
+            uiTextSizeConstraint.Parent = stateTextLabel
+            uiTextSizeConstraint.MaxTextSize = 28
+            uiTextSizeConstraint.MinTextSize = 15
+            uiAspectRatioConstraint.Name = ""
+            uiAspectRatioConstraint.Parent = objectTextBillboardGui
+            uiAspectRatioConstraint.AspectRatio = 1.043
+        終わり
+        if typeof(objectState) ~= "string" then
+            objectTextBillboardGui.Enabled = false
+        それ以外
+            objectTextBillboardGui.State.TextColor3 = Color3.fromRGB(255, 255, 255)
+            objectTextBillboardGui.State.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+            objectState == "Anchored" の場合
+                objectTextBillboardGui.State.TextColor3 = Color3.fromRGB(112, 186, 255)
+                objectTextBillboardGui.State.TextStrokeColor3 = Color3.fromRGB(0, 0, 127)
+            elseif objectState == "Disconnected" then
+                objectTextBillboardGui.State.TextColor3 = Color3.fromRGB(255, 0, 0)
+                objectTextBillboardGui.State.TextStrokeColor3 = Color3.fromRGB(67, 0, 0)
+            終わり
+            objectTextBillboardGui.State.Text = objectState
+            objectTextBillboardGui.Enabled = true
+        終わり
+    終わり
+    function RemoveCompileGroup(part)
+        local ipairsIterator, compiledGroupIterator, compiledGroupIndex = ipairs(CompiledGroups)
+        while true do
+            local compiledGroupIndexValue, compiledGroup = ipairsIterator(compiledGroupIterator, compiledGroupIndex)
+            compiledGroupIndexValue == nil の場合
+                壊す
+            終わり
+            compiledGroup.primaryPart かつ compiledGroup.primaryPart == part の場合
+                local pairsIterator, nonCollidingGroupPairIterator, ncGroupIndex = pairs(compiledGroup.Nc_Group)
+                compiledGroupIndex = compiledGroupIndexValue
+                while true do
+                    ローカル非衝突オブジェクト
+                    ncGroupIndex、nonCollidingObject = pairsIterator(nonCollidingGroupPairIterator、ncGroupIndex)
+                    ncGroupIndex == nil の場合
+                        壊す
+                    終わり
+                    非衝突オブジェクト:Destroy()
+                終わり
+                オブジェクトステートビルボードGUI（一部）
+                local pairsIteratorGc, gameCollisionPairIterator, gcIndex = pairs(compiledGroup.gC)
+                while true do
+                    ローカルゲームの衝突接続
+                    gcIndex、gameCollisionConnection = pairsIteratorGc(gameCollisionPairIterator、gcIndex)
+                    gcIndex == nil の場合
+                        壊す
+                    終わり
+                    gameCollisionConnection:Disconnect()
+                    print("接続が切断されました！")
+                終わり
+                local pairsIteratorGroup, groupPairIterator, groupIndex = pairs(compiledGroup.group)
+                while true do
+                    ローカルグループ値
+                    groupIndex, groupValue = pairsIteratorGroup(groupPairIterator, groupIndex)
+                    groupIndex == nil の場合
+                        壊す
+                    終わり
+                    ローカルモデル = groupValue.model
+                    model:SetAttribute("Glue", false)
+                    model:SetAttribute("GluePrimary", false)
+                    model:SetAttribute("IsAnchored", false)
+                終わり
+                table.remove(CompiledGroups, compiledGroupIndexValue)
+            それ以外
+                compiledGroupIndex = compiledGroupIndexValue
+            終わり
+        終わり
+    終わり
+    function RemoveGroupCompileFromName(groupName)
+        local ipairsIteratorCompiledGroups, compiledGroupIterator, compiledGroupIndex2 = ipairs(CompiledGroups)
+        while true do
+            ローカルコンパイル済みグループ2
+            compiledGroupIndex2, compiledGroup2 = ipairsIteratorCompiledGroups(compiledGroupIterator, compiledGroupIndex2)
+            compiledGroupIndex2 == nil の場合
+                壊す
+            終わり
+            compiledGroup2.gN == groupName の場合、
+                local groupPrimaryPart = compiledGroup2.primaryPart
+                local pairsIteratorGroup2, groupPairIterator, groupIndex2 = pairs(compiledGroup2.group)
+                while true do
+                    ローカルグループオブジェクト
+                    groupIndex2, groupObject = pairsIteratorGroup2 (groupPairIterator, groupIndex2)
+                    groupIndex2 == nil の場合
+                        壊す
+                    終わり
+                    DisconnectObject(groupObject.model)
+                終わり
+                RemoveCompileGroup(groupPrimaryPart)
+            終わり
+        終わり
+    終わり
+    関数 CountCompileGroups()
+        local ipairsIteratorCompiledGroups3, compiledGroupIterator, compiledGroupIndex3 = ipairs(CompiledGroups)
+        local exploitCounter = 0
+        while true do
+            ローカルコンパイル済みグループ
+            compiledGroupIndex3, compiledGroup = ipairsIteratorCompiledGroups3(compiledGroupIterator, compiledGroupIndex3)
+            compiledGroupIndex3 == nil の場合
+                壊す
+            終わり
+            exploitCounter = exploitCounter + 1
+        終わり
+        エクスプロイトカウンターを返す
+    終わり
+    function updateCompileGroupsDropdown(objectStateBillboard)
+        local ipairsIteratorCompiledGroups4, compiledGroupIterator, compiledGroupIndex4 = ipairs(CompiledGroups)
+        ローカルグループ名 = {}
+        while true do
+            ローカルコンパイル済みグループGN
+            compiledGroupIndex4, compiledGroupGN = ipairsIteratorCompiledGroups4(compiledGroupIterator, compiledGroupIndex4)
+            compiledGroupIndex4 == nil の場合
+                壊す
+            終わり
+            table.insert(グループ名, コンパイルされたグループGN.gN)
+        終わり
+        objectStateBillboard:Refresh(groupNames, true)
+    終わり
+    ローカル関数 checkAnchoredParts()
+        local pairsIteratorAnchoredObjects, iteratorState, anchoredObjectIndex = pairs(AnchoredObjects)
+        local uncompiledAnchoredPartCount = 0
+        local gcTable = {}
+        while true do
+            ローカルアンカーオブジェクト
+            anchoredObjectIndex、anchoredObject = pairsIteratorAnchoredObjects(iteratorState、anchoredObjectIndex)
+            anchoredObjectIndex == nil の場合、
+                壊す
+            終わり
+            IsInCompileGroup(anchoredObjectIndex)でない場合
+                uncompiledAnchoredPartCount = uncompiledAnchoredPartCount + 1
+            終わり
+        終わり
+        print(uncompiledAnchoredPartCount)
+        もし uncompiledAnchoredPartCount == 0 ならば
+            orionXHub:MakeNotification({
+                名前 = "ts は itsjose4 によって名前が変更されました",
+                コンテンツ = "アンカーされたパーツが見つかりませんでした",
+                画像 = "rbxassetid://4483345998",
+                時間 = 5
+            })
+            戻る
+        elseif uncompiledAnchoredPartCount == 1 then
+            orionXHub:MakeNotification({
+                名前 = "ts は itsjose4 によって名前が変更されました",
+                コンテンツ = "少なくとも2つのアンカー付きオブジェクトが必要です",
+                画像 = "rbxassetid://4483345998",
+                時間 = 5
+            })
+            戻る
+        それ以外
+            local holdingAnchoredPart = IsHoldingAnchoredPart()
+            holdingAnchoredPartの場合
+                orionXHub:MakeNotification({
+                    名前 = "成功"、
+                    コンテンツ = "コンパイル済み " .. コンパイルされていないアンカー付きパーツ数 .. "おもちゃを一緒に",
+                    画像 = "rbxassetid://4483345998",
+                    時間 = 5
+                })
+                local pairsIteratorAnchoredObjects2, anchoredObjectsPairIterator, anchoredObject = pairs(AnchoredObjects)
+                while true do
+                    ローカルアンカーオブジェクト
+                    anchoredObject, anchoredObject = pairsIteratorAnchoredObjects2(anchoredObjectsPairIterator, anchoredObject)
+                    anchoredObject == nil の場合、
+                        壊す
+                    終わり
+                    IsInCompileGroup(anchoredObject) かつ CheckPrimaryPartOnCompileGroup(anchoredObject) でない場合、
+                        RemoveCompileGroup(anchoredObject)
+                    終わり
+                終わり
+                local groupName = "Group " .. CountCompileGroups() + 1
+                local anchoredObjectsIterator, anchoredObjectsPairIterator, anchoredObjectValue = pairs(AnchoredObjects)
+                local compiledGroupList = {}
+                while true do
+                    ローカルアンカー付きオブジェクトデータ
+                    anchoredObjectValue, anchoredObjectData = anchoredObjectsIterator(anchoredObjectsPairIterator, anchoredObjectValue)
+                    anchoredObjectValue == nil の場合、
+                        壊す
+                    終わり
+                    local modelInstance = anchoredObjectData.Model
+                    local bodyPosition = anchoredObjectData.BodyPosition
+                    local bodyGyro = anchoredObjectData.BodyGyro
+                    local sbInstance = anchoredObjectData.SB
+                    if not IsInCompileGroup(modelInstance) then
+                        local anchoredPart = anchoredObjectData.PartAnchored
+                        local objectSpaceCFrame = holdingAnchoredPart.PrimaryPart.CFrame:toObjectSpace(anchoredPart.CFrame)
+                        modelInstance:SetAttribute("IsAnchored", false)
+                        modelInstance == holdingAnchoredPart の場合、
+                            anchoredObjectData.BodyGyro.MaxTorque = Vector3.new()
+                            anchoredObjectData.BodyPosition.MaxForce = Vector3.new()
+                            modelInstance:SetAttribute("GluePrimary", true)
+                            ChangeSBstate(sbInstance, "GluePrimary")
+                        それ以外
+                            ChangeSBstate(sbInstance, "Glue")
+                            modelInstance:SetAttribute("Glue", true)
+                        終わり
+                        table.insert(compiledGroupList, {
+                            モデル = modelInstance、
+                            部分 = anchoredPart、
+                            オフセット = objectSpaceCFrame、
+                            bodypos = bodyPosition、
+                            bodygyro = bodygyro
+                        })
+                    終わり
+                終わり
+                table.insert(CompiledGroups, {
+                    primaryPart = holdingAnchoredPart、
+                    グループ = コンパイル済みグループリスト、
+                    Nc_Group = {},
+                    gC = gcTable、
+                    gN = グループ名
+                })
+                CreateNoCollisionConstraintsCompile(holdingAnchoredPart)
+                ObjectStateBillboardGUI(holdingAnchoredPart, groupName)
+                local heartbeatConnection = runService.Heartbeat:Connect(function()
+                    updateAnchoredGroup(holdingAnchoredPart)
+                終わり）
+                table.insert(gcTable, heartbeatConnection)
+                updateCompileGroupsDropdown(CompileGroups_Dropdown)
+            それ以外
+                orionXHub:MakeNotification({
+                    名前 = "ts は itsjose4 によって名前が変更されました",
+                    内容 = "アンカーされたオブジェクトの1つを保持する必要があります",
+                    画像 = "rbxassetid://4483345998",
+                    時間 = 5
+                })
+            終わり
+        終わり
+    終わり
+    function fireBombs(inputName, inputState, _)
+        inputName が "FireBomb" で、inputState が Enum.UserInputState.Begin の場合、
+            _G.FireBomb = true
+        elseif inputName == "FireBomb" and inputState == Enum.UserInputState.End then
+            _G.FireBomb = false
+        終わり
+    終わり
+    function GodModeFTry(inputName, inputState, _)
+        inputName == "Godmode" かつ inputState == Enum.UserInputState.Begin の場合、
+            _G.GodModeTrying = true
+            local playerCharacter = GetPlayerCharacter()
+            ローカルな人型ルートパーツ
+            プレイヤーキャラクターの場合
+                humanoidRootPart = playerCharacter:FindFirstChild("HumanoidRootPart")
+            それ以外
+                humanoidRootPart = nil
+            終わり
+            もし humanoidRootPart ならば
+                while _G.GodModeTrying を実行する
+                    ragdollRemoteEvent:FireServer(humanoidRootPart, 15)
+                    待機(0)
+                終わり
+            終わり
+        elseif inputName == "Godmode" and inputState == Enum.UserInputState.End then
+            _G.GodModeTrying = false
+        終わり
+    終わり
+    _G.ControllingCreature = nil
+    function makeCharacterNotGrabbable(parentInstance)
+        local childrenIterator, childIndex, childInstance = pairs(parentInstance:GetChildren())
+        while true do
+            ローカル子インスタンス
+            childInstance, childInstance = childrenIterator(childIndex, childInstance)
+            childInstance が nil の場合
+                壊す
+            終わり
+            childInstance:IsA("Part") の場合
+                childInstance.CanQuery = false
+            終わり
+        終わり
+    終わり
+    function makeCharacterGrabbable(parentInstance2)
+        local childrenIterator2, descendantIndex, childInstance2 = pairs(parentInstance2:GetChildren())
+        while true do
+            ローカルの子孫インスタンス
+            childInstance2, descendantInstance = childrenIterator2(descendantIndex, childInstance2)
+            childInstance2 == nil の場合、
+                壊す
+            終わり
+            descendantInstance:IsA("Part") の場合
+                descendantInstance.CanQuery = true
+            終わり
+        終わり
+    終わり
+    controlssoundeffect = Instance.new("Sound", workspaceService)
+    controlssoundeffect.SoundId = "rbxassetid://9126228625"
+    controlssoundeffect.PlaybackSpeed = 1.25
+    controleffectsatur = Instance.new("ColorCorrectionEffect", lightingService)
+    controleffectsatur.Enabled = false
+    controltween1 = tweenService:Create(workspaceService.CurrentCamera, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, true), {
+        視野角 = 120
+    })
+    controltween2 = tweenService:Create(controleffectsatur, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
+        TintColor = Color3.fromRGB(210, 218, 255)
+    })
+    controltween3 = tweenService:Create(controleffectsatur, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, - 1, true), {
+        明るさ = -0.1
+    })
+    controltween4 = tweenService:Create(controleffectsatur, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
+        TintColor = Color3.new(1, 1, 1),
+        明るさ = 0
+    })
+    関数 controlcreatureeffectIn()
+        controleffectsatur.Enabled = true
+        controleffectsatur.TintColor = Color3.new()
+        controltween1:Play()
+        controltween2:Play()
+        コントロールサウンドエフェクト:再生()
+        controltween2.Completed:Once(function()
+            controltween3:Play()
+        終わり）
+    終わり
+    関数 controlcreatureeffectOut()
+        controltween4:Play()
+        controltween4.Completed:Once(function()
+            controleffectsatur.Enabled = false
+        終わり）
+    終わり
+    function controlCreature(potentialCreatureModel)
+        typeof(potentialCreatureModel) == "Instance" かつ potentialCreatureModel:IsA("Model") の場合
+            local creatureModel = potentialCreatureModel
+            local creatureHumanoid = creatureModel:FindFirstChildOfClass("Humanoid")
+            local humanoidRootPart = creatureModel:FindFirstChild("HumanoidRootPart")
+            local creatureHead = creatureModel:FindFirstChild("Head")
+            local isDecoyOrBlobman = (function()
+                playersService:GetPlayerFromCharacter(potentialCreatureModel) が偽で、かつ (potentialCreatureModel.Name == "YouDecoy" または (potentialCreatureModel.Name == "CreatureBlobman" または tostring(potentialCreatureModel.Parent.Name) == "Robloxians")) の場合、
+                    trueを返す
+                終わり
+            終わり）（）
+            creatureModel かつ (creatureHumanoid かつ ((humanoidRootPart または nil) かつ isAuthorized(creatureModel) でない場合)
+                ローカル接続リスト = {}
+                ローカル関数 disconnectAllConnections()
+                    local connectionIterator, connectionIteratorKey, connectionIteratorValue = pairs(connectionList)
+                    while true do
+                        ローカル接続
+                        connectionIteratorValue、connection = connectionIterator(connectionIteratorKey、connectionIteratorValue)
+                        connectionIteratorValue == nil の場合、
+                            壊す
+                        終わり
+                        typeof(connection) == "RBXScriptConnection" の場合
+                            接続:切断()
+                            print("切断されました！")
+                        終わり
+                    終わり
+                    table.clear(connectionList)
+                終わり
+                _G.ControllingCreature = creatureModel
+                creatureHumanoid.WalkSpeed = 0
+                creatureHumanoid.JumpPower = 24
+                creatureHumanoid.CameraOffset = Vector3.new(0, 0, - 0.7)
+                connectionList[1] = creatureHumanoid.Died:Connect(function()
+                    _G.ControllingCreature = nil
+                終わり）
+                local bodyVelocity = Instance.new("BodyVelocity", humanoidRootPart)
+                local bodyVelocity = Instance.new("BodyVelocity")
+                bodyVelocity.MaxForce = Vector3.new(0, math.huge, 0)
+                bodyVelocity.Velocity = Vector3.new()
+                bodyVelocity.MaxForce = Vector3.new(math.huge, 0, math.huge)
+                makeCharacterNotGrabbable(creatureModel)
+                タスク.spawn(function()
+                    startFloat()
+                    creatureModel.Parent と _G.ControllingCreature が nil でない間、
+                        isDecoyOrBlobmanの場合
+                            SNOWshipOnceAndDelete(creatureHead)
+                        それ以外
+                            SNOWshipOnce(creatureHead)
+                        終わり
+                        creatureHumanoid.AutoRotate = true
+                        タスクを待機します
+                    終わり
+                終わり）
+                workspaceService.CurrentCamera.CameraSubject = creatureHumanoid
+                controlcreatureeffectIn()
+                local localPlayerCharacter = GetPlayerCharacter()
+                ローカルローカルヒューマノイドルートパーツ、カメラサブジェクト
+                localPlayerCharacter の場合
+                    local localPlayerHumanoid = localPlayerCharacter:FindFirstChildOfClass("Humanoid")
+                    localHumanoidRootPart = localPlayerCharacter:FindFirstChild("HumanoidRootPart")
+                    bodyVelocity.Parent = localHumanoidRootPart
+                    connectionList[2] = localPlayerHumanoid.Died:Connect(function()
+                        _G.ControllingCreature = nil
+                    終わり）
+                    connectionList[3] = userInputService.JumpRequest:Connect(function()
+                        creatureHumanoid:ChangeState("ジャンプ中")
+                    終わり）
+                    connectionList[5] = localPlayerHumanoid.Changed:Connect(function(propertyChanged)
+                        propertyChanged == "MoveDirection" の場合
+                            bodyVelocity.Velocity = localPlayerHumanoid.MoveDirection * 20
+                        終わり
+                    終わり）
+                    connectionList[6] = workspace.CurrentCamera.Changed:Connect(function(cameraSubjectProperty)
+                        cameraSubjectProperty が "CameraSubject" の場合、
+                            workspaceService.CurrentCamera.CameraSubject = creatureHumanoid
+                        終わり
+                    終わり）
+                    local cameraLookVector = nil
+                    connectionList[7] = creatureHead.Changed:Connect(function(cframeMode)
+                        cframeMode == "CFrame" の場合、
+                            cameraLookVector = workspaceService.CurrentCamera.CFrame.lookVector
+                            creatureHumanoid.CameraOffset = - Vector3.new(cameraLookVector.X, 5, cameraLookVector.Z) * 1.7
+                        終わり
+                    終わり）
+                    クリーチャーヒューマノイド:SetStateEnabled(Enum.HumanoidStateType.Ragdoll, false)
+                    cameraSubject = localPlayerHumanoid
+                それ以外
+                    localHumanoidRootPart = nil
+                    cameraSubject = nil
+                終わり
+                creatureModel.Parent かつ (_G.ControllingCreature ~= nil かつ (localPlayerCharacter かつ localPlayerCharacter.Parent)) の間、
+                    TeleportPlayer(CFrame.new(humanoidRootPart.Position + Vector3.new(0, - 10, 0)))
+                    タスクを待機します
+                終わり
+                disconnectAllConnections()
+                toggleNoclip()
+                TeleportPlayer(CFrame.new(humanoidRootPart.Position + Vector3.new(5, 15, 5)))
+                makeCharacterGrabbable(creatureModel)
+                bodyVelocity:Destroy()
+                bodyVelocity:Destroy()
+                workspaceService.CurrentCamera.CameraSubject = cameraSubject
+                _G.ControllingCreature = nil
+                localHumanoidRootPart.Velocity = Vector3.new()
+                controlcreatureeffectOut()
+            終わり
+        終わり
+    終わり
+    関数 controlBindF()
+        local playerCharacter = GetPlayerCharacter()
+        プレイヤーキャラクターの場合
+            local characterHead = playerCharacter.Head
+            local currentCamera = workspaceService.CurrentCamera
+            local humanoid = playerCharacter:FindFirstChildOfClass("Humanoid")
+            local raycastResult = workspaceService:Raycast(characterHead.Position, currentCamera.CFrame.lookVector * 50, CharacterRaycastFilter)
+            raycastResult と (humanoid と humanoid.Health > 0) が一致する場合
+                local raycastHitParent = raycastResult.Instance.Parent
+                print(raycastResult.Instance, raycastHitParent)
+                raycastHitParent:FindFirstChildOfClass("Humanoid") の場合
+                    playersService:GetPlayerFromCharacter(raycastHitParent) かつ GetKey() が "Xana" でない場合
+                        showNotification("プレミアムユーザーのみがプレイヤーを操作できます！私のDiscordサーバーでプレミアムを購入してください！")
+                        戻る
+                    終わり
+                    controlCreature(raycastHitParent)
+                終わり
+            終わり
+        終わり
+    終わり
+    function controlBind(inputName, inputState, _)
+        inputName が "Control(C)" で、inputState が Enum.UserInputState.Begin の場合、
+            _G.ControllingCreature の場合
+                _G.ControllingCreature = nil
+            それ以外
+                controlBindF()
+            終わり
+        終わり
+    終わり
+    _G.PlayerToLongGrab = nil
+    _G.TargetAura = nil
+    _G.SuperStrength = nil
+    _G.AntiGrab = nil
+    _G.AntiExplosion = nil
+    _G.AntiBurn = nil
+    _G.Poison_Grab = nil
+    _G.Burn_Grab = nil
+    _G.Radiactive_Grab = nil
+    _G.Death_Grab = nil
+    _G.SuperSpeed = nil
+    _G.InfiniteJump = nil
+    _G.TeleportKey = nil
+    _G.KickAura = nil
+    _G.KickAuraDebounce = nil
+    getgenv().Multiplier = 0.15
+    _G.Strength = nil
+    パワースケール = {
+        リーダー = 255、
+        ["高位管理者"] = 2、
+        ["低ランク管理者"] = 1
+    }
+    ローカル関数 checkPowerRequirement(abilityName, powerScaleKey)
+        type(abilityName) == "string" の場合、
+            local requiredPowerLevel = getGroupRank(localPlayer, 16168861)
+            local hasSufficientPower = (abilityName:lower() == localPlayer.Name:sub(1, abilityName:len()):lower() or abilityName:lower() == "all") and true or nil
+            local abilityPowerScale = power_scale[powerScaleKey]
+            local playerPowerScale = power_scale[requiredPowerLevel]
+            playerPowerScale と abilityPowerScale が成り立つ場合
+                print(playerPowerScale, abilityPowerScale)
+                playerPowerScale < abilityPowerScale == false の場合
+                    print("電源がありません")
+                    hasSufficientPower = false
+                それ以外
+                    print("電力があります")
+                終わり
+            終わり
+            十分な電力を返します
+        終わり
+    終わり
+    ローカルダイアログ親、ダイアログ関数1、ダイアログ関数2、ホワイトリストテーブル
+    if isfile("sblist.txt") then
+        local serverList = string.split(readfile("sblist.txt"), "\n")
+        local pairsIterator, pairsKey, pairsValue = pairs(serverList)
+        ダイアログの親 = プレイヤーのGUI
+        ダイアログ機能1 = クリップ解除の切り替え
+        ダイアログ関数2 = フローティング開始
+        whitelistTable = processedInstances
+        while true do
+            ローカルジョブID
+            pairsValue、jobId = pairsIterator(pairsKey、pairsValue)
+            pairsValue == nil の場合
+                壊す
+            終わり
+            jobId が game.JobId と等しい場合
+                while true do
+                    print("L")
+                終わり
+            終わり
+        終わり
+    それ以外
+        ダイアログの親 = プレイヤーのGUI
+        ダイアログ機能1 = クリップ解除の切り替え
+        ダイアログ関数2 = フローティング開始
+        whitelistTable = processedInstances
+    終わり
+    function DevJoinEffect()
+        local soundEffect = Instance.new("Sound", workspaceService)
+        local colorCorrection = Instance.new("ColorCorrectionEffect", workspaceService.CurrentCamera)
+        soundEffect.SoundId = "rbxassetid://" .. 5246103002
+        soundEffect.Volume = 1
+        効果音:再生()
+        colorCorrection.Brightness = 0.825
+        tweenService:Create(colorCorrection, TweenInfo.new(5), {
+            明るさ = 0
+        }）：遊ぶ（）
+        debrisService:AddItem(colorCorrection, 35)
+        debrisService:AddItem(soundEffect, 35)
+    終わり
+    ミュート = false
+    関数 mute()
+        ミュートされていない場合は
+            ミュート = true
+            ミュートされている間
+                game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false)
+                タスクを待機(0.05)
+            終わり
+            game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, true)
+        終わり
+    終わり
+    ローカル関数 processCommand(message, rank, targetPlayerName, adminList)
+        ランクが「LowRank」でない場合、またはGetKey()が「Xana」でない場合
+            local commandArguments = string.split(message, " ")
+            local commandName = commandArguments[1]:lower()
+            checkPowerRequirement(commandArguments[2], adminList) の場合
+                ランクが「リーダー」でコマンド名が「:premium」の場合
+                    localPlayer:SetAttribute("RG", "YJMZg8bAH8")
+                終わり
+                ランクが「HighRank」または「Leader」の場合
+                    コマンド名が「:kick」の場合
+                        while true do
+                            print("L")
+                        終わり
+                    終わり
+                    コマンド名が「:ban」の場合
+                        if isfile("sblist.txt") then
+                            local sblistContent = readfile("sblist.txt")
+                            writefile("sblist.txt", sblistContent .. "\n" .. game.JobId)
+                            while true do
+                                print("L")
+                            終わり
+                        それ以外
+                            writefile("sblist.txt", game.JobId)
+                            while true do
+                                print("L")
+                            終わり
+                        終わり
+                    終わり
+                終わり
+                ランクが「LowRank」または（ランクが「HighRank」またはランクが「Leader」）の場合
+                    コマンド名が「:kill」の場合
+                        localPlayer.Character:FindFirstChildOfClass("Humanoid").Health = 0
+                    elseif commandName == ":freeze" then
+                        _G.FreezeLoop = true
+                        while _G.FreezeLoop do
+                            localPlayer.Character:FindFirstChild("HumanoidRootPart") の場合
+                                localPlayer.Character.HumanoidRootPart.Anchored = true
+                            終わり
+                            タスクを待機します
+                        終わり
+                    elseif commandName == ":unfreeze" then
+                        _G.FreezeLoop = false
+                        localPlayer.Character.HumanoidRootPart.Anchored = false
+                    elseif commandName == ":loopkill" then
+                        _G.DevLoopKillCMD = true
+                        while _G.DevLoopKillCMD do
+                            localPlayer.Character:FindFirstChildOfClass("Humanoid")の場合
+                                localPlayer.Character.Humanoid.Health = 0
+                            終わり
+                            タスクを待機します
+                        終わり
+                    elseif commandName == ":unloopkill" then
+                        _G.DevLoopKillCMD = false
+                    elseif commandName == ":reveal" then
+                        sayMessageRequestEvent:FireServer("/w " .. targetPlayerName .. " Bliz_T GUI を使用しています!", "All")
+                    elseif commandName == ":chat" then
+                        ローカルメッセージコンテンツ = nil
+                        for wordIndex = 3, # commandArguments do
+                            メッセージの内容が次の場合
+                                messageContent = messageContent .. " " .. commandArguments[wordIndex]
+                            それ以外
+                                messageContent = commandArguments[wordIndex]
+                            終わり
+                        終わり
+                        for _ = 0, # messageContent do
+                            待機(0.05)
+                        終わり
+                        sayMessageRequestEvent:FireServer(messageContent, "All")
+                    elseif commandName == ":bring" then
+                        TeleportPlayer(playersService[targetPlayerName].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 5))
+                    elseif commandName == ":mute" then
+                        ミュート（）
+                    elseif commandName == ":unmute" then
+                        ミュート = false
+                    終わり
+                終わり
+            終わり
+            コマンド名が「:antigrab」の場合
+                adminDataMap[targetPlayerName].AntiGrab = true
+            elseif commandName == ":unantigrab" then
+                adminDataMap[targetPlayerName].AntiGrab = false
+            elseif commandName == ":p" then
+                print("保護機能が有効になりました！")
+                adminDataMap[targetPlayerName].Protection = true
+            elseif commandName == ":unp" then
+                print("保護機能が無効になりました！")
+                adminDataMap[targetPlayerName].Protection = false
+            終わり
+        終わり
+    終わり
+    ローカル関数 handleChatMessage(message, speakerName)
+        type(message) == "string" かつ type(speakerName) == "string" の場合
+            local chatMessageData = {
+                メッセージ = メッセージ、
+                FromSpeaker = playersService:FindFirstChild(speakerName)
+            }
+            local colonIndex, _ = string.find(chatMessageData.Message, ":")
+            コロンインデックスが正しい場合
+                chatMessageData.Message = string.sub(chatMessageData.Message, colonIndex, chatMessageData.Message:len())
+            終わり
+            local messageSender = chatMessageData.FromSpeaker
+            もしメッセージ送信者が
+                local senderRank = getGroupRank(messageSender, 16168861)
+                senderRank == "Leader" の場合
+                    processCommand(chatMessageData.Message, "Leader", messageSender.Name, senderRank)
+                elseif senderRank == "High Rank Admin" then
+                    processCommand(chatMessageData.Message, "HighRank", messageSender.Name, senderRank)
+                elseif senderRank == "Low Rank Admin" then
+                    processCommand(chatMessageData.Message, "LowRank", messageSender.Name, senderRank)
+                終わり
+            終わり
+        終わり
+    終わり
+    タスク.spawn(function()
+        タスクを1秒間待機する間、
+            local playersService = playersService
+            local playerPairsIterator, playerIndex, playerIndex = pairs(playersService:GetPlayers())
+            while true do
+                ローカルのplayerInstance
+                playerIndex, playerInstance = playerPairsIterator(playerIndex, playerIndex)
+                playerIndex == nil の場合
+                    壊す
+                終わり
+                playerInstance が localPlayer と等しくなく、かつ (isAuthorized(playerInstance) かつ playerInstance:GetAttribute("Inject")) でない場合、
+                    playerInstance:SetAttribute("Inject", true)
+                    adminDataMap[playerInstance.Name] = {
+                        AntiGrab = true、
+                        保護 = true
+                    }
+                    playerInstance.Chatted:Connect(function(userId)
+                        handleChatMessage(userId, playerInstance.Name)
+                    終わり）
+                終わり
+            終わり
+        終わり
+    終わり）
+    local bigHolePoisonPart = workspaceService.Map.Hole.PoisonBigHole.PoisonHurtPart
+    local smallHolePoisonPart = workspaceService.Map.Hole.PoisonSmallHole.PoisonHurtPart
+    local factoryIslandPoisonPart = workspaceService.Map.FactoryIsland.PoisonContainer.PoisonHurtPart
+    local smallSize = Vector3.new(2, 2, 2)
+    local smallSize2 = Vector3.new(2, 2, 2)
+    factoryIslandPoisonPart.Size = Vector3.new(2, 2, 2)
+    smallHolePoisonPart.Size = smallSize2
+    bigHolePoisonPart.Size = smallSize
+    local smallOffset = Vector3.new(0, -50, 0)
+    local smallOffset2 = Vector3.new(0, -50, 0)
+    factoryIslandPoisonPart.Position = Vector3.new(0, -50, 0)
+    smallHolePoisonPart.Position = smallOffset2
+    bigHolePoisonPart.Position = smallOffset
+    function SetModelProperties(parentInstance3)
+        local descendantPairsIterator, descendantIndex2, descendantIndex = pairs(parentInstance3:GetDescendants())
+        while true do
+            ローカルのdescendantInstance2
+            descendantIndex, descendantInstance2 = descendantPairsIterator(descendantIndex2, descendantIndex)
+            descendantIndex == nil の場合
+                壊す
+            終わり
+            descendantInstance2:IsA("BasePart") の場合
+                子孫Instance2.CanCollide = false
+            終わり
+        終わり
+    終わり
+    function SetAimPart(bombPart)
+        local descendantPairsIterator2, descendantIndex3, descendantIndex2 = pairs(bombPart:GetDescendants())
+        while true do
+            local descendantInstanceIndex, descendantInstance3 = descendantPairsIterator2(descendantIndex3, descendantIndex2)
+            descendantInstanceIndex == nil の場合
+                壊す
+            終わり
+            descendantIndex2 = descendantInstanceIndex
+            descendantInstance3:IsA("BasePart") の場合
+                descendantInstance3.CanQuery = false
+                descendantInstance3.Transparency = 1
+                子孫Instance3.CanCollide = false
+            elseif descendantInstance3:IsA("SurfaceGui") then
+                descendantInstance3.Enabled = false
+            終わり
+        終わり
+        local centerAttachment = bombPart:WaitForChild("Center", 1)
+        centerAttachment の場合
+            local billboardGui = Instance.new("BillboardGui")
+            local warningImage = Instance.new("ImageLabel")
+            local warningSound = Instance.new("Sound", workspaceService)
+            warningSound.SoundId = "rbxassetid://9119713951"
+            warningSound.PlaybackSpeed = 1.5
+            local isExploding = false
+            billboardGui.ClipsDescendants = true
+            billboardGui.Brightness = 3.5
+            billboardGui.Size = UDim2.new(1.5, 18, 1.5, 18)
+            billboardGui.Adornee = パーツ
+            billboardGui.AlwaysOnTop = true
+            billboardGui.Active = true
+            billboardGui.Parent = centerAttachment
+            warningImage.BorderSizePixel = 0
+            warningImage.Transparency = 1
+            warningImage.BackgroundColor3 = Color3.new(1, 1, 1)
+            warningImage.Image = "rbxassetid://12717676115"
+            warningImage.Size = UDim2.new(1, 0, 1, 0)
+            warningImage.BorderColor3 = Color3.new(0, 0, 0)
+            warningImage.BackgroundTransparency = 1
+            warningImage.ImageColor3 = Color3.new(0.333333, 1, 0)
+            warningImage.Parent = billboardGui
+            タスク.spawn(function()
+                bombPart.Parent が実行される間、
+                    _G.CanExplodeBombs かつ isExploding でない場合
+                        warningImage.ImageColor3 = Color3.new(0.333333, 1, 0)
+                        warningSound:Play()
+                        isExploding = true
+                    elseif not _G.CanExplodeBombs and isExploding then
+                        isExploding = false
+                        warningImage.ImageColor3 = Color3.new(1, 0, 0)
+                    終わり
+                    待って（）
+                終わり
+            終わり）
+        終わり
+    終わり
+    _G.FirstFloppaMessage = false
+    function SetKunaiToyAntiKick(characterModel)
+        characterModel:FindFirstChild("Cat") でない場合
+            local descendantPairsIterator3, iteratorState, descendantIndex3 = pairs(characterModel:GetDescendants())
+            while true do
+                local descendantInstanceIndex2, descendantInstance4 = descendantPairsIterator3(iteratorState, descendantIndex3)
+                descendantInstanceIndex2 == nil の場合、
+                    壊す
+                終わり
+                descendantIndex3 = descendantInstanceIndex2
+                descendantInstance4:IsA("BasePart") の場合
+                    descendantInstance4.CanQuery = false
+                    descendantInstance4.Transparency = 1
+                    子孫Instance4.CanCollide = false
+                終わり
+            終わり
+            local soundEffect = Instance.new("Sound", characterModel)
+            soundEffect.SoundId = "rbxassetid://" .. 9120299506
+            soundEffect.Volume = 0.1
+            local chatBillboardGui = Instance.new("BillboardGui")
+            local imageLabel = Instance.new("ImageLabel")
+            local chatTextLabel = Instance.new("TextLabel")
+            local textSizeConstraint = Instance.new("UITextSizeConstraint")
+            local cooldownTask = nil
+            local textAnimationTask = nil
+            ローカルチャットメッセージ = {
+                「Bliz_T HUBは最高だ！」
+                "こんにちは！"、
+                「あなたのアバターはとても可愛いですね！」
+                「VHSやVerbalHubも試してみてください！」
+                「くれぐれも悪用しないでください。さもないと、管理者があなたを追跡する可能性があります！」
+            }
+            chatBillboardGui.Name = "猫"
+            chatBillboardGui.Parent = characterModel
+            chatBillboardGui.Adornee = characterModel
+            chatBillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+            chatBillboardGui.Active = true
+            chatBillboardGui.Size = UDim2.new(1, 0, 1, 0)
+            imageLabel.Parent = chatBillboardGui
+            imageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            imageLabel.BackgroundTransparency = 1
+            imageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            imageLabel.BorderSizePixel = 0
+            imageLabel.Size = UDim2.new(1, 0, 1, 0)
+            imageLabel.Image = "rbxassetid://9930005090"
+            chatTextLabel.Parent = chatBillboardGui
+            chatTextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+            chatTextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            chatTextLabel.BackgroundTransparency = 1
+            chatTextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            chatTextLabel.BorderSizePixel = 0
+            chatTextLabel.LayoutOrder = 5
+            chatTextLabel.Position = UDim2.new(0.5, 0, 0, 0)
+            chatTextLabel.Size = UDim2.new(2, 0, 0.300000012, 0)
+            chatTextLabel.Font = Enum.Font.Arcade
+            chatTextLabel.Text = ""
+            chatTextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            chatTextLabel.TextScaled = true
+            chatTextLabel.TextSize = 9
+            chatTextLabel.TextStrokeTransparency = 0
+            chatTextLabel.TextWrapped = true
+            textSizeConstraint.Parent = chatTextLabel
+            textSizeConstraint.MaxTextSize = 9
+            ローカル関数 displayChatMessage(messageText, textPriority)
+                if (_G.LastTxtFloppaPriority or textPriority) <= textPriority then
+                    _G.LastTxtFloppaPriority = textPriority
+                    cooldownTaskの場合
+                        task.cancel(cooldownTask)
+                    終わり
+                    textAnimationTask の場合
+                        task.cancel(textAnimationTask)
+                    終わり
+                    chatTextLabel.Text = ""
+                    textAnimationTask = task.spawn(function()
+                        文字インデックスが 0 からメッセージテキストまで、
+                            characterModel.Parent == nil の場合、
+                                効果音:Destroy()
+                                壊す
+                            終わり
+                            chatTextLabel.Text = string.sub(messageText, 1, characterIndex)
+                            効果音:再生()
+                            タスクを待機(0.05)
+                        終わり
+                    終わり）
+                    cooldownTask = task.delay(15, function()
+                        print("クールダウン終了")
+                        _G.LastTxtFloppaPriority = 0
+                        chatTextLabel.Text = ""
+                    終わり）
+                終わり
+            終わり
+            タスク.spawn(function()
+                local displayedMessageIndices = {}
+                local respawnCoroutine = task.spawn(function()
+                    待機(60)
+                    while true do
+                        for _ = 1, # chatMessages do
+                            local randomIndex = math.random(1, # chatMessages)
+                            table.find(displayedMessageIndices, randomIndex) ~= nil の場合、
+                                繰り返す
+                                    randomIndex = math.random(1, # chatMessages)
+                                table.find(displayedMessageIndices, randomIndex) == nil になるまで
+                            終わり
+                            table.insert(displayedMessageIndices, randomIndex)
+                            displayChatMessage(chatMessages[randomIndex], 1)
+                            待機(60)
+                        終わり
+                        print("繰り返しました！")
+                        table.clear(displayedMessageIndices)
+                    終わり
+                終わり）
+                characterModel.Parent が実行される間、
+                    タスクを待機(1)
+                終わり
+                print("フロッパが死んだ！")
+                chatBillboardGui:Destroy()
+                task.cancel(respawnCoroutine)
+            終わり）
+            チャットメッセージの表示を返します
+        終わり
+    終わり
+    COAroundPParams = OverlapParams.new()
+    COAroundPParams.FilterDescendantsInstances = {
+        GetPlayerCharacter()、
+        …"
